@@ -1,0 +1,6 @@
+src/etl/config.yaml
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/

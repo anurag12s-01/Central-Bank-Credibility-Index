@@ -1,0 +1,11 @@
+pandas
+numpy
+requests
+psycopg2-binary
+pydantic
+pyyaml
+scipy
+transformers
+torch
+streamlit
+plotly

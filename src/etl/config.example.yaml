@@ -1,0 +1,9 @@
+fred:
+  api_key: "YOUR_FRED_API_KEY_HERE"
+
+database:
+  host: "localhost"
+  port: 5432
+  dbname: "cbci_db"
+  user: "postgres"
+  password: "YOUR_PASSWORD_HERE"
