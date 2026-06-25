@@ -1,0 +1,145 @@
+{"kind":"deck","id":"pr/6z9rho","name":"Deck"}
+{"kind":"layout","layoutId":"4eb12b2b-61be-4ef6-8651-0675e54d631b","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"a454e732-3c5c-47e4-b611-5742da1e6dc5","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/563az9","slide":1,"title":"CBCI / EXECUTIVE CAROUSEL","textShapes":6}
+{"kind":"shape","id":"sh/g7adsji5","slide":1,"bbox":[0,0,1080,18]}
+{"kind":"textbox","id":"sh/rmhk3q5o","slide":1,"text":"CBCI / EXECUTIVE CAROUSEL","textPreview":"CBCI / EXECUTIVE CAROUSEL","textChars":25,"textLines":1,"bbox":[64,62,600,30]}
+{"kind":"textbox","id":"sh/y1kre1w7","slide":1,"text":"Credibility is not a soft asset.\nIt is a priced risk factor.","textPreview":"Credibility is not a soft asset. | It is a priced risk factor.","textChars":60,"textLines":2,"bbox":[64,244,900,270]}
+{"kind":"textbox","id":"sh/90je9cvi","slide":1,"text":"A data-driven view of how inflation control, policy consistency, forecasting, bonds, and FX combine into institutional trust.","textPreview":"A data-driven view of how inflation control, policy consistency, forecasting, bonds, and FX combine into institutional trust.","textChars":125,"textLines":1,"bbox":[64,570,860,150]}
+{"kind":"shape","id":"sh/gfmlkjm1","slide":1,"bbox":[64,792,170,0]}
+{"kind":"textbox","id":"sh/rytsvu9k","slide":1,"text":"10 CENTRAL BANKS  •  5 PILLARS  •  1 COMPARABLE SCORE","textPreview":"10 CENTRAL BANKS  •  5 PILLARS  •  1 COMPARABLE SCORE","textChars":53,"textLines":1,"bbox":[64,830,870,36]}
+{"kind":"textbox","id":"sh/yd0z6103","slide":1,"text":"MBA-style analysis of the project’s authentic score snapshot","textPreview":"MBA-style analysis of the project’s authentic score snapshot","textChars":60,"textLines":1,"bbox":[64,1180,820,34]}
+{"kind":"textbox","id":"sh/9cvixcze","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[938,1180,82,34]}
+{"kind":"notes","id":"nt/563az9","slide":1,"text":""}
+{"kind":"slide","id":"sl/2d8x7a","slide":2,"title":"CENTRAL BANK CREDIBILITY INDEX","textShapes":9}
+{"kind":"textbox","id":"sh/kf6dcbul","slide":2,"text":"CENTRAL BANK CREDIBILITY INDEX","textPreview":"CENTRAL BANK CREDIBILITY INDEX","textChars":30,"textLines":1,"bbox":[60,44,650,24]}
+{"kind":"textbox","id":"sh/vu9knih4","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[938,42,82,28]}
+{"kind":"shape","id":"sh/29gr2p8n","slide":2,"bbox":[60,88,960,0]}
+{"kind":"textbox","id":"sh/d8bat47y","slide":2,"text":"The bond market reveals the cost of lost confidence.","textPreview":"The bond market reveals the cost of lost confidence.","textChars":52,"textLines":1,"bbox":[60,118,960,128]}
+{"kind":"textbox","id":"sh/knih4byh","slide":2,"text":"US 10-year yields moved from a crisis-era trough to a structurally higher regime.","textPreview":"US 10-year yields moved from a crisis-era trough to a structurally higher regime.","textChars":81,"textLines":1,"bbox":[60,254,940,76]}
+{"kind":"textbox","id":"sh/v6psfil0","slide":2,"text":"446","textPreview":"446","textChars":3,"textLines":1,"bbox":[62,344,360,82]}
+{"kind":"textbox","id":"sh/2lszqtcj","slide":2,"text":"basis-point rise from the Aug 2020 trough to the Oct 2023 peak","textPreview":"basis-point rise from the Aug 2020 trough to the Oct 2023 peak","textChars":62,"textLines":1,"bbox":[62,428,360,62]}
+{"kind":"textbox","id":"sh/dcbulwva","slide":2,"text":"4.50%","textPreview":"4.50%","textChars":5,"textLines":1,"bbox":[730,344,280,82]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":2,"text":"latest observation\n2026-06-23","textPreview":"latest observation | 2026-06-23","textChars":29,"textLines":2,"bbox":[730,428,280,62]}
+{"kind":"shape","id":"sh/val87ed8","slide":2,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":2,"text":"Source: FRED DGS10 file in project repository; observations through 23 Jun 2026.","textPreview":"Source: FRED DGS10 file in project repository; observations through 23 Jun 2026.","textChars":80,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"chart","id":"ch/a5gbq1or","slide":2,"name":"","chartType":"line","bbox":[70,560,940,610]}
+{"kind":"notes","id":"nt/2d8x7a","slide":2,"text":""}
+{"kind":"slide","id":"sl/eyn4yp","slide":3,"title":"CENTRAL BANK CREDIBILITY INDEX","textShapes":8}
+{"kind":"textbox","id":"sh/hoza1gvy","slide":3,"text":"CENTRAL BANK CREDIBILITY INDEX","textPreview":"CENTRAL BANK CREDIBILITY INDEX","textChars":30,"textLines":1,"bbox":[60,44,650,24]}
+{"kind":"textbox","id":"sh/a1gvy90j","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[938,42,82,28]}
+{"kind":"shape","id":"sh/zidonyd0","slide":3,"bbox":[60,88,960,0]}
+{"kind":"textbox","id":"sh/svu9knih","slide":3,"text":"One score. Five tests of institutional trust.","textPreview":"One score. Five tests of institutional trust.","textChars":45,"textLines":1,"bbox":[60,118,960,128]}
+{"kind":"textbox","id":"sh/hgn29gr2","slide":3,"text":"The model deliberately balances mandate delivery, communication quality, forecasting, and market outcomes.","textPreview":"The model deliberately balances mandate delivery, communication quality, forecasting, and market outcomes.","textChars":106,"textLines":1,"bbox":[60,254,940,76]}
+{"kind":"textbox","id":"sh/za1gvy90","slide":3,"text":"30%","textPreview":"30%","textChars":3,"textLines":1,"bbox":[744,440,250,88]}
+{"kind":"textbox","id":"sh/sji5snel","slide":3,"text":"Inflation anchoring receives the largest weight because price stability is the primary mandate.","textPreview":"Inflation anchoring receives the largest weight because price stability is the primary mandate.","textChars":95,"textLines":1,"bbox":[744,540,270,170]}
+{"kind":"shape","id":"sh/h4byhgn2","slide":3,"bbox":[744,758,200,0]}
+{"kind":"textbox","id":"sh/p4r65wju","slide":3,"text":"The design prevents a single market metric from becoming a proxy for credibility.","textPreview":"The design prevents a single market metric from becoming a proxy for credibility.","textChars":81,"textLines":1,"bbox":[744,800,270,180]}
+{"kind":"shape","id":"sh/wjudg7ad","slide":3,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/7y1kre1w","slide":3,"text":"Method: weighted sum of five 0–100 sub-indices; weights shown above.","textPreview":"Method: weighted sum of five 0–100 sub-indices; weights shown above.","textChars":68,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"chart","id":"ch/i5sneloj","slide":3,"name":"","chartType":"bar","bbox":[60,390,610,660]}
+{"kind":"notes","id":"nt/eyn4yp","slide":3,"text":""}
+{"kind":"slide","id":"sl/ootfox","slide":4,"title":"CENTRAL BANK CREDIBILITY INDEX","textShapes":7}
+{"kind":"textbox","id":"sh/fyxobm58","slide":4,"text":"CENTRAL BANK CREDIBILITY INDEX","textPreview":"CENTRAL BANK CREDIBILITY INDEX","textChars":30,"textLines":1,"bbox":[60,44,650,24]}
+{"kind":"textbox","id":"sh/8jqh0fep","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[938,42,82,28]}
+{"kind":"shape","id":"sh/x4nap4r6","slide":4,"bbox":[60,88,960,0]}
+{"kind":"textbox","id":"sh/qpg3ex0n","slide":4,"text":"Three institutions form the credibility frontier.","textPreview":"Three institutions form the credibility frontier.","textChars":49,"textLines":1,"bbox":[60,118,960,128]}
+{"kind":"textbox","id":"sh/fa9w3m94","slide":4,"text":"The top-three average is 83.1 versus 60.3 for the bottom three—a 22.8-point gap.","textPreview":"The top-three average is 83.1 versus 60.3 for the bottom three—a 22.8-point gap.","textChars":80,"textLines":1,"bbox":[60,254,940,76]}
+{"kind":"textbox","id":"sh/8v6psfil","slide":4,"text":"24.2 pts","textPreview":"24.2 pts","textChars":8,"textLines":1,"bbox":[760,330,260,64]}
+{"kind":"textbox","id":"sh/xczed8v6","slide":4,"text":"leader-to-laggard spread","textPreview":"leader-to-laggard spread","textChars":24,"textLines":1,"bbox":[760,395,260,35]}
+{"kind":"shape","id":"sh/je9cvixc","slide":4,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/nih4byhg","slide":4,"text":"Source: authentic_cbci_scores.csv. Total score is the weighted sum of five pillar contributions.","textPreview":"Source: authentic_cbci_scores.csv. Total score is the weighted sum of five pillar contributions.","textChars":96,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"chart","id":"ch/y90je9cv","slide":4,"name":"","chartType":"bar","bbox":[70,430,930,745]}
+{"kind":"notes","id":"nt/ootfox","slide":4,"text":""}
+{"kind":"slide","id":"sl/cqb3ov","slide":5,"title":"CENTRAL BANK CREDIBILITY INDEX","textShapes":11}
+{"kind":"textbox","id":"sh/gn29gr2p","slide":5,"text":"CENTRAL BANK CREDIBILITY INDEX","textPreview":"CENTRAL BANK CREDIBILITY INDEX","textChars":30,"textLines":1,"bbox":[60,44,650,24]}
+{"kind":"textbox","id":"sh/n29gr2p8","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[938,42,82,28]}
+{"kind":"shape","id":"sh/yhgn29gr","slide":5,"bbox":[60,88,960,0]}
+{"kind":"textbox","id":"sh/5wjudg7a","slide":5,"text":"The leaders win through different combinations.","textPreview":"The leaders win through different combinations.","textChars":47,"textLines":1,"bbox":[60,118,960,128]}
+{"kind":"textbox","id":"sh/gbq1oryt","slide":5,"text":"Similar total scores can conceal very different institutional strengths—and very different failure modes.","textPreview":"Similar total scores can conceal very different institutional strengths—and very different failure modes.","textChars":105,"textLines":1,"bbox":[60,254,940,76]}
+{"kind":"shape","id":"sh/y90je9cv","slide":5,"bbox":[62,990,956,0]}
+{"kind":"textbox","id":"sh/5sneloj2","slide":5,"text":"BOJ","textPreview":"BOJ","textChars":3,"textLines":1,"bbox":[62,1032,150,42]}
+{"kind":"textbox","id":"sh/cbulwval","slide":5,"text":"Best inflation anchoring; FX stability is the exposed flank.","textPreview":"Best inflation anchoring; FX stability is the exposed flank.","textChars":60,"textLines":1,"bbox":[194,1032,790,54]}
+{"kind":"textbox","id":"sh/e9cvixcz","slide":5,"text":"FED","textPreview":"FED","textChars":3,"textLines":1,"bbox":[62,1110,150,42]}
+{"kind":"textbox","id":"sh/3q5o7qpg","slide":5,"text":"Perfect FX score; bond-market confidence is comparatively weaker.","textPreview":"Perfect FX score; bond-market confidence is comparatively weaker.","textChars":65,"textLines":1,"bbox":[194,1110,790,54]}
+{"kind":"textbox","id":"sh/wb2hwfyx","slide":5,"text":"ECB","textPreview":"ECB","textChars":3,"textLines":1,"bbox":[62,1188,150,42]}
+{"kind":"textbox","id":"sh/lwval87e","slide":5,"text":"Best policy consistency; forecasting and bonds leave room to improve.","textPreview":"Best policy consistency; forecasting and bonds leave room to improve.","textChars":69,"textLines":1,"bbox":[194,1188,790,54]}
+{"kind":"shape","id":"sh/ex0nuxc3","slide":5,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/3itgfmlk","slide":5,"text":"Values are weighted point contributions to the 100-point CBCI total.","textPreview":"Values are weighted point contributions to the 100-point CBCI total.","textChars":68,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"chart","id":"ch/zupwb2hw","slide":5,"name":"","chartType":"bar","bbox":[58,388,965,540]}
+{"kind":"notes","id":"nt/cqb3ov","slide":5,"text":""}
+{"kind":"slide","id":"sl/sbmon6","slide":6,"title":"CENTRAL BANK CREDIBILITY INDEX","textShapes":8}
+{"kind":"textbox","id":"sh/90je9cvi","slide":6,"text":"CENTRAL BANK CREDIBILITY INDEX","textPreview":"CENTRAL BANK CREDIBILITY INDEX","textChars":30,"textLines":1,"bbox":[60,44,650,24]}
+{"kind":"textbox","id":"sh/yd0z6103","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[938,42,82,28]}
+{"kind":"shape","id":"sh/rytsvu9k","slide":6,"bbox":[60,88,960,0]}
+{"kind":"textbox","id":"sh/g7adsji5","slide":6,"text":"Words-to-actions alignment is the largest separator.","textPreview":"Words-to-actions alignment is the largest separator.","textChars":52,"textLines":1,"bbox":[60,118,960,128]}
+{"kind":"textbox","id":"sh/9s36hcrm","slide":6,"text":"Policy consistency spans almost the full 0–100 range—more dispersion than any other pillar.","textPreview":"Policy consistency spans almost the full 0–100 range—more dispersion than any other pillar.","textChars":91,"textLines":1,"bbox":[60,254,940,76]}
+{"kind":"textbox","id":"sh/y1kre1w7","slide":6,"text":"92","textPreview":"92","textChars":2,"textLines":1,"bbox":[62,340,330,82]}
+{"kind":"textbox","id":"sh/rmhk3q5o","slide":6,"text":"point spread in underlying policy-consistency scores","textPreview":"point spread in underlying policy-consistency scores","textChars":52,"textLines":1,"bbox":[62,424,330,62]}
+{"kind":"textbox","id":"sh/g3ex0nux","slide":6,"text":"This pillar alone separates institutions that merely communicate from those the market can reliably anticipate.","textPreview":"This pillar alone separates institutions that merely communicate from those the market can reliably anticipate.","textChars":111,"textLines":1,"bbox":[460,350,540,130]}
+{"kind":"shape","id":"sh/5gbq1ory","slide":6,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/cvixczed","slide":6,"text":"Underlying pillar score = weighted contribution ÷ pillar weight. Range: ECB 95.5 to BOC 3.5.","textPreview":"Underlying pillar score = weighted contribution ÷ pillar weight. Range: ECB 95.5 to BOC 3.5.","textChars":92,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"chart","id":"ch/5sneloj2","slide":6,"name":"","chartType":"bar","bbox":[70,520,930,650]}
+{"kind":"notes","id":"nt/sbmon6","slide":6,"text":""}
+{"kind":"slide","id":"sl/qrgs74","slide":7,"title":"CENTRAL BANK CREDIBILITY INDEX","textShapes":9}
+{"kind":"textbox","id":"sh/svu9knih","slide":7,"text":"CENTRAL BANK CREDIBILITY INDEX","textPreview":"CENTRAL BANK CREDIBILITY INDEX","textChars":30,"textLines":1,"bbox":[60,44,650,24]}
+{"kind":"textbox","id":"sh/za1gvy90","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[938,42,82,28]}
+{"kind":"shape","id":"sh/ap4r65wj","slide":7,"bbox":[60,88,960,0]}
+{"kind":"textbox","id":"sh/hoza1gvy","slide":7,"text":"A single communication deficit can erase broad excellence.","textPreview":"A single communication deficit can erase broad excellence.","textChars":58,"textLines":1,"bbox":[60,118,960,128]}
+{"kind":"textbox","id":"sh/s36hcrmh","slide":7,"text":"Compare the four non-policy pillars with the final policy-consistency contribution.","textPreview":"Compare the four non-policy pillars with the final policy-consistency contribution.","textChars":83,"textLines":1,"bbox":[60,254,940,76]}
+{"kind":"shape","id":"sh/a1gvy90j","slide":7,"bbox":[62,940,956,0]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":7,"text":"SNB","textPreview":"SNB","textChars":3,"textLines":1,"bbox":[62,990,150,44]}
+{"kind":"textbox","id":"sh/s72x4nap","slide":7,"text":"Highest non-policy subtotal in the dataset (69.1), yet policy consistency contributes only 6.2 points.","textPreview":"Highest non-policy subtotal in the dataset (69.1), yet policy consistency contributes only 6.2 points.","textChars":102,"textLines":1,"bbox":[190,990,805,100]}
+{"kind":"textbox","id":"sh/idonyd0z","slide":7,"text":"BOC","textPreview":"BOC","textChars":3,"textLines":1,"bbox":[62,1118,150,44]}
+{"kind":"textbox","id":"sh/byhgn29g","slide":7,"text":"A solid 59.9-point base is overwhelmed by a 0.7-point policy contribution—the clearest bottleneck in the sample.","textPreview":"A solid 59.9-point base is overwhelmed by a 0.7-point policy contribution—the clearest bottleneck in the sample.","textChars":112,"textLines":1,"bbox":[190,1118,805,105]}
+{"kind":"shape","id":"sh/0je9cvix","slide":7,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":7,"text":"Source: authentic_cbci_scores.csv. Stacked values sum to each institution’s total score.","textPreview":"Source: authentic_cbci_scores.csv. Stacked values sum to each institution’s total score.","textChars":88,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"chart","id":"ch/judg7ads","slide":7,"name":"","chartType":"bar","bbox":[58,390,965,480]}
+{"kind":"notes","id":"nt/qrgs74","slide":7,"text":""}
+{"kind":"slide","id":"sl/rwlyep","slide":8,"title":"CENTRAL BANK CREDIBILITY INDEX","textShapes":8}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":8,"text":"CENTRAL BANK CREDIBILITY INDEX","textPreview":"CENTRAL BANK CREDIBILITY INDEX","textChars":30,"textLines":1,"bbox":[60,44,650,24]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[938,42,82,28]}
+{"kind":"shape","id":"sh/ra5gbq1o","slide":8,"bbox":[60,88,960,0]}
+{"kind":"textbox","id":"sh/kjm1cfa9","slide":8,"text":"Every institution has a different credibility fracture.","textPreview":"Every institution has a different credibility fracture.","textChars":55,"textLines":1,"bbox":[60,118,960,128]}
+{"kind":"textbox","id":"sh/94fu18jq","slide":8,"text":"The heatmap converts weighted contributions back to comparable 0–100 pillar scores.","textPreview":"The heatmap converts weighted contributions back to comparable 0–100 pillar scores.","textChars":83,"textLines":1,"bbox":[60,254,940,76]}
+{"kind":"textbox","id":"sh/r2p8nqxs","slide":8,"text":"≥85 strength","textPreview":"≥85 strength","textChars":12,"textLines":1,"bbox":[60,1190,240,32]}
+{"kind":"textbox","id":"sh/kb6xkf6d","slide":8,"text":"70–84 resilient","textPreview":"70–84 resilient","textChars":15,"textLines":1,"bbox":[350,1190,240,32]}
+{"kind":"textbox","id":"sh/9w3m94fu","slide":8,"text":"<70 vulnerability","textPreview":"<70 vulnerability","textChars":17,"textLines":1,"bbox":[680,1190,280,32]}
+{"kind":"shape","id":"sh/xczed8v6","slide":8,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/8v6psfil","slide":8,"text":"Scores rounded to nearest whole number. Color bands are analytical thresholds, not model categories.","textPreview":"Scores rounded to nearest whole number. Color bands are analytical thresholds, not model categories.","textChars":100,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"table","id":"tb/nyd0z610","slide":8,"name":"","rows":11,"cols":6,"preview":"Bank | Inflation | Policy | Forecast | Bond | FX","bbox":[58,360,964,800]}
+{"kind":"notes","id":"nt/rwlyep","slide":8,"text":""}
+{"kind":"slide","id":"sl/o42b9m","slide":9,"title":"CENTRAL BANK CREDIBILITY INDEX","textShapes":6}
+{"kind":"textbox","id":"sh/p4r65wju","slide":9,"text":"CENTRAL BANK CREDIBILITY INDEX","textPreview":"CENTRAL BANK CREDIBILITY INDEX","textChars":30,"textLines":1,"bbox":[60,44,650,24]}
+{"kind":"textbox","id":"sh/ed8v6psf","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[938,42,82,28]}
+{"kind":"shape","id":"sh/7y1kre1w","slide":9,"bbox":[60,88,960,0]}
+{"kind":"textbox","id":"sh/0bi9s36h","slide":9,"text":"Turn the index into a repeatable decision discipline.","textPreview":"Turn the index into a repeatable decision discipline.","textChars":53,"textLines":1,"bbox":[60,118,960,128]}
+{"kind":"textbox","id":"sh/pwb2hwfy","slide":9,"text":"The score is most useful when it changes the questions asked before taking duration, FX, or volatility risk.","textPreview":"The score is most useful when it changes the questions asked before taking duration, FX, or volatility risk.","textChars":108,"textLines":1,"bbox":[60,254,940,76]}
+{"kind":"textbox","id":"sh/7qpg3ex0","slide":9,"text":"Management lesson: credibility should be monitored as a leading operating indicator—not explained after volatility arrives.","textPreview":"Management lesson: credibility should be monitored as a leading operating indicator—not explained after volatility arrives.","textChars":123,"textLines":1,"bbox":[60,1110,950,105]}
+{"kind":"shape","id":"sh/0z61032l","slide":9,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/pkzupwb2","slide":9,"text":"Illustrative research framework only; not investment advice.","textPreview":"Illustrative research framework only; not investment advice.","textChars":60,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"table","id":"tb/jqh0fepk","slide":9,"name":"","rows":4,"cols":3,"preview":"Signal | What it implies | Portfolio question","bbox":[60,390,960,650]}
+{"kind":"notes","id":"nt/o42b9m","slide":9,"text":""}
+{"kind":"slide","id":"sl/wt9tmv","slide":10,"title":"THE EXECUTIVE TAKEAWAY","textShapes":17}
+{"kind":"shape","id":"sh/9s36hcrm","slide":10,"bbox":[0,0,1080,18]}
+{"kind":"textbox","id":"sh/y1kre1w7","slide":10,"text":"THE EXECUTIVE TAKEAWAY","textPreview":"THE EXECUTIVE TAKEAWAY","textChars":22,"textLines":1,"bbox":[60,64,500,30]}
+{"kind":"textbox","id":"sh/rmhk3q5o","slide":10,"text":"Credibility is a system property—\nand the weakest link gets priced.","textPreview":"Credibility is a system property— | and the weakest link gets priced.","textChars":67,"textLines":2,"bbox":[60,180,950,220]}
+{"kind":"shape","id":"sh/gfmlkjm1","slide":10,"bbox":[60,460,960,0]}
+{"kind":"textbox","id":"sh/90je9cvi","slide":10,"text":"24.2","textPreview":"24.2","textChars":4,"textLines":1,"bbox":[60,520,280,82]}
+{"kind":"textbox","id":"sh/yd0z6103","slide":10,"text":"point spread between the leader and laggard","textPreview":"point spread between the leader and laggard","textChars":43,"textLines":1,"bbox":[60,604,280,62]}
+{"kind":"textbox","id":"sh/rytsvu9k","slide":10,"text":"92","textPreview":"92","textChars":2,"textLines":1,"bbox":[400,520,250,82]}
+{"kind":"textbox","id":"sh/gr2p8nqx","slide":10,"text":"point spread in policy consistency","textPreview":"point spread in policy consistency","textChars":34,"textLines":1,"bbox":[400,604,250,62]}
+{"kind":"textbox","id":"sh/9cvixcze","slide":10,"text":"446","textPreview":"446","textChars":3,"textLines":1,"bbox":[740,520,280,82]}
+{"kind":"textbox","id":"sh/tovahoza","slide":10,"text":"bp rise in the US 10Y from trough to peak","textPreview":"bp rise in the US 10Y from trough to peak","textChars":41,"textLines":1,"bbox":[740,604,280,62]}
+{"kind":"shape","id":"sh/032lszqt","slide":10,"bbox":[60,760,960,0]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":10,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[60,830,60,60]}
+{"kind":"textbox","id":"sh/ixczed8v","slide":10,"text":"Use multiple pillars; no single outcome is credibility.","textPreview":"Use multiple pillars; no single outcome is credibility.","textChars":55,"textLines":1,"bbox":[132,832,830,60]}
+{"kind":"textbox","id":"sh/p0bi9s36","slide":10,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[60,930,60,60]}
+{"kind":"textbox","id":"sh/0fepkzup","slide":10,"text":"Treat communication consistency as a measurable risk factor.","textPreview":"Treat communication consistency as a measurable risk factor.","textChars":60,"textLines":1,"bbox":[132,932,830,60]}
+{"kind":"textbox","id":"sh/bulwval8","slide":10,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[60,1030,60,60]}
+{"kind":"textbox","id":"sh/i9s36hcr","slide":10,"text":"Focus on the weakest pillar—it often explains the next repricing.","textPreview":"Focus on the weakest pillar—it often explains the next repricing.","textChars":65,"textLines":1,"bbox":[132,1032,830,65]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":10,"text":"If credibility moves markets, why leave it qualitative?","textPreview":"If credibility moves markets, why leave it qualitative?","textChars":55,"textLines":1,"bbox":[60,1190,890,56]}
+{"kind":"textbox","id":"sh/0je9cvix","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[938,1192,82,34]}
+{"kind":"shape","id":"sh/g7adsji5","slide":10,"bbox":[60,1288,960,0]}
+{"kind":"textbox","id":"sh/9s36hcrm","slide":10,"text":"Sources: project CBCI score snapshot and FRED DGS10 data through 23 Jun 2026.","textPreview":"Sources: project CBCI score snapshot and FRED DGS10 data through 23 Jun 2026.","textChars":77,"textLines":1,"bbox":[60,1303,960,24]}
+{"kind":"notes","id":"nt/wt9tmv","slide":10,"text":""}
