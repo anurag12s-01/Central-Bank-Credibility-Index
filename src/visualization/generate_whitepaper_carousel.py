@@ -76,11 +76,12 @@ fig2.add_vrect(x0="2022-03-01", x1="2023-12-31", fillcolor="blue", opacity=0.1, 
 
 # Annotation for Peak
 peak_row = df_macro.loc[df_macro['value'].idxmax()]
-fig2.add_annotation(x=peak_row['date'], y=peak_row['value'], text="Terminal Rate Peak: 4.98%<br>Oct 2023", 
+peak_date_str = peak_row['date'].strftime('%Y-%m-%d')
+fig2.add_annotation(x=peak_date_str, y=peak_row['value'], text="Terminal Rate Peak: 4.98%<br>Oct 2023", 
                     showarrow=True, arrowhead=2, arrowsize=1, arrowwidth=2, arrowcolor='#EF4444',
                     bordercolor='#EF4444', borderwidth=1, bgcolor='#2A0A0A', font=dict(color='#EF4444', size=14), ax=-60, ay=10)
 
-fig2.add_trace(go.Scatter(x=[peak_row['date']], y=[peak_row['value']], mode='markers', name='', showlegend=False, marker=dict(color='#EF4444', size=10)))
+fig2.add_trace(go.Scatter(x=[peak_date_str], y=[peak_row['value']], mode='markers', name='', showlegend=False, marker=dict(color='#EF4444', size=10)))
 
 fig2.update_layout(
     title=dict(text="Macro Policy Shock Monitor: 10-Year Treasury Yield Dynamics", font=dict(size=24), x=0.5),
