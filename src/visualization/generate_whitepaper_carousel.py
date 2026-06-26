@@ -52,8 +52,11 @@ for i, row in df_scores_sorted.iterrows():
     )
 
 fig1.update_layout(
-    title=dict(text="Global Central Bank Credibility Index (CBCI) - Methodological Breakdown", font=dict(size=24), x=0.5),
+    title=dict(text="Global Central Bank Credibility Index (CBCI) - Methodological Breakdown", font=dict(size=24, family='Inter'), x=0.5),
     barmode='stack',
+    font=dict(family='Inter'),
+    xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+    yaxis=dict(showgrid=False),
     margin=dict(l=40, r=40, t=60, b=100),
     paper_bgcolor='#0B0F19', plot_bgcolor='#0B0F19',
     legend=dict(orientation="h", yanchor="bottom", y=-0.2, xanchor="center", x=0.5, font=dict(size=14))
@@ -71,9 +74,11 @@ fig2 = go.Figure()
 fig2.add_trace(go.Scatter(x=df_macro['date'], y=df_macro['value'], mode='lines', name='10-Year Treasury Yield (DGS10)', line=dict(color='#3B82F6', width=1.5)))
 fig2.add_trace(go.Scatter(x=df_macro['date'], y=df_macro['SMA_50'], mode='lines', name='50-Day Moving Average', line=dict(color='#EF4444', width=1.5, dash='dash')))
 
-# Shaded regions
-fig2.add_vrect(x0="2020-03-01", x1="2021-06-01", fillcolor="red", opacity=0.1, layer="below", line_width=0, name='Pandemic Shock / ZIRP')
-fig2.add_vrect(x0="2022-03-01", x1="2023-12-31", fillcolor="blue", opacity=0.1, layer="below", line_width=0, name='Aggressive Hiking Cycle')
+fig2.add_vrect(x0="2020-03-01", x1="2021-06-01", fillcolor="#EF4444", opacity=0.3, layer="below", line_width=0)
+fig2.add_vrect(x0="2022-03-01", x1="2023-12-31", fillcolor="#3B82F6", opacity=0.3, layer="below", line_width=0)
+# Dummy traces for legend
+fig2.add_trace(go.Bar(x=[None], y=[None], name='Pandemic Shock / ZIRP', marker_color='rgba(239, 68, 68, 0.5)'))
+fig2.add_trace(go.Bar(x=[None], y=[None], name='Aggressive Hiking Cycle', marker_color='rgba(59, 130, 246, 0.5)'))
 
 # Annotation for Peak
 peak_row = df_macro.loc[df_macro['value'].idxmax()]
@@ -85,11 +90,14 @@ fig2.add_annotation(x=peak_date_str, y=peak_row['value'], text="Terminal Rate Pe
 fig2.add_trace(go.Scatter(x=[peak_date_str], y=[peak_row['value']], mode='markers', name='', showlegend=False, marker=dict(color='#EF4444', size=10)))
 
 fig2.update_layout(
-    title=dict(text="Macro Policy Shock Monitor: 10-Year Treasury Yield Dynamics", font=dict(size=24), x=0.5),
+    title=dict(text="Macro Policy Shock Monitor: 10-Year Treasury Yield Dynamics", font=dict(size=24, family='Inter'), x=0.5),
+    font=dict(family='Inter'),
     yaxis_title="Yield (%)", xaxis_title="Timeline (2010 - 2026)",
+    xaxis=dict(showgrid=False),
+    yaxis=dict(gridcolor='#1E293B'),
     margin=dict(l=40, r=40, t=60, b=40),
     paper_bgcolor='#0B0F19', plot_bgcolor='#0B0F19',
-    legend=dict(x=0.01, y=0.99, bgcolor='rgba(0,0,0,0.5)')
+    legend=dict(x=0.01, y=0.99, bgcolor='rgba(11,15,25,0.8)', bordercolor='#334155', borderwidth=1)
 )
 chart2_path = os.path.join(img_dir, 'chart2_macro.png')
 fig2.write_image(chart2_path, width=1200, height=600)

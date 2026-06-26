@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBCI LinkedIn Carousel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: 1080px 1350px;
+            margin: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: 'Inter', sans-serif;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .slide {
+            width: 1080px;
+            height: 1350px;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #0B0F19 0%, #0f172a 100%);
+            color: #F8FAFC;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide::after {
+            content: "Central Bank Credibility Index (CBCI) • Swipe ➔";
+            position: absolute;
+            bottom: 50px;
+            left: 80px;
+            color: #475569;
+            font-weight: 600;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+        .slide.last-slide::after {
+            content: "Central Bank Credibility Index (CBCI)";
+        }
+        
+        .tag {
+            font-size: 34px;
+            font-weight: 800;
+            color: #3B82F6;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .tag.green { color: #10B981; }
+        
+        h1 {
+            font-size: 95px;
+            font-weight: 800;
+            margin: 0 0 40px 0;
+            line-height: 1.1;
+            background: -webkit-linear-gradient(0deg, #F8FAFC, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 {
+            font-size: 75px;
+            font-weight: 800;
+            margin: 0 0 50px 0;
+            line-height: 1.1;
+        }
+        p {
+            font-size: 34px;
+            line-height: 1.6;
+            color: #94A3B8;
+            margin: 0 0 40px 0;
+        }
+        .highlight {
+            color: #F8FAFC;
+            font-weight: 600;
+        }
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .info-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 2px solid rgba(51, 65, 85, 0.5);
+            border-radius: 24px;
+            padding: 40px;
+        }
+        .info-card h3 {
+            font-size: 34px;
+            margin: 0 0 10px 0;
+            color: #F8FAFC;
+        }
+        .info-card p {
+            font-size: 28px;
+            margin: 0;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+        .chart-img {
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid #334155;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-top: 20px;
+        }
+        .takeaway {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        .takeaway-icon {
+            font-size: 36px;
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+        .quote {
+            font-size: 42px;
+            font-style: italic;
+            font-weight: 600;
+            color: #3B82F6;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: 60px;
+            padding: 40px;
+            border-top: 1px solid #334155;
+            border-bottom: 1px solid #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1 -->
+    <div class="slide">
+        <div class="tag">Project Overview</div>
+        <h1>The Central Bank<br>Credibility Index</h1>
+        <p style="margin-top: 40px;">The 2022 global inflation crisis served as a watershed moment for modern monetary policy.</p>
+        <p>The <span class="highlight">"Transitory Inflation"</span> narrative was a strategic miscalculation that led to a total breakdown in forward guidance, stripping markets of their primary navigational tools.</p>
+        <p>To mitigate these risks, the CBCI was developed as a <span class="highlight">rigorous, data-driven framework</span> to quantify institutional trust and extract asymmetric insights from policy behavior.</p>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+        <div class="tag green">01 / The Framework</div>
+        <h2>The 5-Pillar Model</h2>
+        <p>A definitive 0–100 score insulated from subjective bias:</p>
+        
+        <div class="card-grid">
+            <div class="info-card">
+                <h3 style="color: #10B981;">1. Inflation Anchoring (30%)</h3>
+                <p>Absolute deviation of headline inflation from official targets over a 12-month window.</p>
+            </div>
+            <div class="info-card">
+                <h3 style="color: #3B82F6;">2. Policy Consistency (20%)</h3>
+                <p>Evaluates NLP alignment between communication (FinBERT) and subsequent interest rate moves.</p>
+            </div>
+            <div class="info-card">
+                <h3 style="color: #A855F7;">3. Forecast Accuracy (20%)</h3>
+                <p>Quantifies Mean Absolute Error (MAE) of central bank economic projections.</p>
+            </div>
+            <div class="info-card">
+                <h3 style="color: #C084FC;">4. Bond Confidence (15%)</h3>
+                <p>Tracks rolling volatility in sovereign bonds (FRED DGS10).</p>
+            </div>
+            <div class="info-card" style="grid-column: span 2;">
+                <h3 style="color: #FF8A65;">5. FX Stability (15%)</h3>
+                <p>Evaluates currency pair safe-haven behavior during market stress.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+        <div class="tag">02 / Architecture</div>
+        <h2>Data Engineering</h2>
+        <p>A strategic shift from fragile manual spreadsheets to an automated, high-integrity pipeline.</p>
+        
+        <div class="card-container" style="margin-top: 40px;">
+            <div class="info-card">
+                <h3>⚙️ Python & Pandas (ETL)</h3>
+                <p>Programmatically ingesting over 4,200 days of raw data from the FRED API. Eliminates human error.</p>
+            </div>
+            <div class="info-card">
+                <h3>🗄️ Relational Integrity (PostgreSQL)</h3>
+                <p>The single source of truth. Enforcing strict data types and managing exact FOMC meeting metadata.</p>
+            </div>
+            <div class="info-card">
+                <h3>📊 Code-as-UI (Streamlit)</h3>
+                <p>Moving away from unversioned drag-and-drop tools to fully auditable, Git-versioned visualization layers.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide">
+        <div class="tag green">03 / The Innovation</div>
+        <h2>Objective NLP Sentiment</h2>
+        <p>Converting unstructured central bank communications into quantitative data points.</p>
+        
+        <div class="card-container" style="margin-top: 40px;">
+            <div class="info-card">
+                <h3>🧠 The FinBERT Model</h3>
+                <p>Specifically trained for financial contexts. FinBERT parses thousands of FOMC and ECB policy statements to generate a precise hawkish-dovish scale.</p>
+            </div>
+            <div class="info-card" style="border-color: rgba(239, 68, 68, 0.5);">
+                <h3 style="color: #EF4444;">⚡ The 'Policy Shock' Metric</h3>
+                <p>The model heavily penalizes central banks when dovish communication is immediately followed by hawkish actions. These shocks are a primary driver of catastrophic bond market volatility.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="slide">
+        <div class="tag">04 / The Outcome</div>
+        <h2 style="margin-bottom: 20px;">Global Leaderboard</h2>
+        <img src="temp_images/chart1_stacked.png" class="chart-img" alt="Leaderboard Chart">
+        
+        <div class="card-container" style="margin-top: 40px;">
+            <div class="info-card" style="padding: 30px;">
+                <h3 style="font-size: 34px;">🏆 The Gold Standard: SNB (89.4)</h3>
+                <p style="font-size: 28px;">Maintained extreme FX stability and tight inflation anchoring throughout the 2020s.</p>
+            </div>
+            <div class="info-card" style="padding: 30px; border-color: rgba(239, 68, 68, 0.3);">
+                <h3 style="font-size: 34px; color: #EF4444;">⚠️ Critical Laggard: PBOC (59.8)</h3>
+                <p style="font-size: 28px;">Penalized for lack of transparent forward guidance and policy consistency.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="slide last-slide">
+        <div class="tag green">05 / Macro Shock Monitor</div>
+        <h2 style="margin-bottom: 20px;">Treasury Yield Dynamics</h2>
+        <img src="temp_images/chart2_macro.png" class="chart-img" alt="Macro Chart">
+        
+        <h3 style="font-size: 44px; margin: 50px 0 30px 0; color: #F8FAFC;">Audit & Oversight Takeaways</h3>
+        
+        <div class="takeaway">
+            <div class="takeaway-icon">🛡️</div>
+            <p style="font-size: 32px; margin:0;"><span class="highlight">Engineering Over Manual Logic:</span> Transitioning to Python/SQL is essential for mitigating model risk.</p>
+        </div>
+        <div class="takeaway">
+            <div class="takeaway-icon">📈</div>
+            <p style="font-size: 32px; margin:0;"><span class="highlight">Sentiment as a Hard Metric:</span> NLP models turn rhetoric into tradable, measurable signals.</p>
+        </div>
+        <div class="takeaway">
+            <div class="takeaway-icon">⚖️</div>
+            <p style="font-size: 32px; margin:0;"><span class="highlight">Consistency is the Asset:</span> Credibility is the alignment of words, forecasts, and actions.</p>
+        </div>
+
+        <div class="quote">
+            "In the modern financial landscape, trust is the most volatile asset of all. Rebuilding market trust takes years, but losing it takes only one missed forecast."
+        </div>
+    </div>
+
+</body>
+</html>
