@@ -24,7 +24,7 @@ except:
     f_reg, f_bold = 'Helvetica', 'Helvetica-Bold'
 
 # Load Data
-df_scores = pd.read_csv(os.path.join(base_dir, 'data', 'processed', 'authentic_cbci_scores.csv'))
+df_scores = pd.read_csv(os.path.join(base_dir, 'data', 'processed', 'final_cbci_scores.csv'))
 df_macro = pd.read_csv(os.path.join(base_dir, 'data', 'raw', 'fred_dgs10.csv'))
 
 # --- CHART 1: Stacked Bar Leaderboard ---
