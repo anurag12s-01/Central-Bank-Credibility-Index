@@ -1,4 +1,5 @@
 import os
+import textwrap
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -93,6 +94,7 @@ fig2.update_layout(
 chart2_path = os.path.join(img_dir, 'chart2_macro.png')
 fig2.write_image(chart2_path, width=1200, height=600)
 
+
 # --- GENERATE PDF CAROUSEL ---
 pdf_path = os.path.join(out_dir, 'CBCI_Whitepaper_Carousel.pdf')
 c = canvas.Canvas(pdf_path, pagesize=(1080, 1350))
@@ -107,203 +109,150 @@ def draw_bg():
     c.setFillColor(BG_COLOR)
     c.rect(0, 0, 1080, 1350, fill=1, stroke=0)
 
-# SLIDE 1
+def draw_wrapped_text(canvas_obj, text, x, y, font, size, color, max_width_chars=45, line_height=None):
+    if line_height is None:
+        line_height = size * 1.3
+    canvas_obj.setFont(font, size)
+    canvas_obj.setFillColor(color)
+    lines = textwrap.wrap(text, width=max_width_chars)
+    for line in lines:
+        canvas_obj.drawString(x, y, line)
+        y -= line_height
+    return y
+
+# SLIDE 1: Intro
 draw_bg()
 c.setFillColor(ACCENT_BLU)
-c.setFont(f_bold, 36)
+c.setFont(f_bold, 32)
 c.drawString(80, 1150, "PROJECT OVERVIEW")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 100)
-c.drawString(80, 1000, "The Central Bank")
-c.drawString(80, 880, "Credibility Index")
-c.setFillColor(TEXT_SEC)
-c.setFont(f_reg, 40)
-text1 = [
-    "The 2022 global inflation crisis served as a watershed moment",
-    "for modern monetary policy.",
-    "",
-    "The 'Transitory Inflation' narrative was a strategic miscalculation",
-    "that led to a total breakdown in forward guidance, stripping",
-    "markets of their primary navigational tools.",
-    "",
-    "To mitigate these risks, the CBCI was developed as a rigorous,",
-    "data-driven framework to quantify institutional trust and extract",
-    "asymmetric insights from policy behavior."
-]
-y = 750
-for line in text1:
-    if line == "": y -= 30; continue
-    c.drawString(80, y, line)
-    y -= 50
+c.setFont(f_bold, 90)
+c.drawString(80, 1020, "The Central Bank")
+c.drawString(80, 910, "Credibility Index")
+
+y = 780
+y = draw_wrapped_text(c, "The 2022 global inflation crisis served as a watershed moment for modern monetary policy.", 80, y, f_reg, 36, TEXT_SEC, 48)
+y -= 40
+y = draw_wrapped_text(c, "The 'Transitory Inflation' narrative was a strategic miscalculation that led to a total breakdown in forward guidance, stripping markets of their primary navigational tools.", 80, y, f_reg, 36, TEXT_SEC, 48)
+y -= 40
+y = draw_wrapped_text(c, "To mitigate these risks, the CBCI was developed as a rigorous, data-driven framework to quantify institutional trust and extract asymmetric insights from policy behavior.", 80, y, f_reg, 36, TEXT_SEC, 48)
 c.showPage()
 
-# SLIDE 2
+# SLIDE 2: Framework
 draw_bg()
 c.setFillColor(ACCENT_GRN)
-c.setFont(f_bold, 36)
+c.setFont(f_bold, 32)
 c.drawString(80, 1200, "01 / THE FRAMEWORK")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 80)
-c.drawString(80, 1050, "The 5-Pillar Model")
-c.setFillColor(TEXT_SEC)
-c.setFont(f_reg, 36)
-c.drawString(80, 950, "To ensure a definitive 0-100 credibility score insulated from bias:")
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "The 5-Pillar Model")
+y = draw_wrapped_text(c, "To ensure a definitive 0-100 credibility score insulated from bias:", 80, 980, f_reg, 34, TEXT_SEC, 50)
+y -= 40
 
 pillars_desc = [
-    ("1. Inflation Anchoring (30%)", "Deviation from targets over 12m window."),
-    ("2. Policy Consistency (20%)", "NLP alignment of words vs interest rate moves."),
-    ("3. Forecast Accuracy (20%)", "Mean Absolute Error of central bank projections."),
-    ("4. Bond Confidence (15%)", "Rolling volatility in sovereign bonds (FRED DGS10)."),
-    ("5. FX Stability (15%)", "Currency pair safe-haven behavior in stress.")
+    ("1. Inflation Anchoring (30%)", "Measures absolute deviation of headline inflation from official targets over a 12-month window."),
+    ("2. Policy Consistency (20%)", "Evaluates NLP alignment between communication (FinBERT) and subsequent interest rate moves."),
+    ("3. Forecast Accuracy (20%)", "Quantifies Mean Absolute Error (MAE) of the central bank's own economic projections."),
+    ("4. Bond Confidence (15%)", "Tracks rolling volatility in sovereign bonds (utilizing FRED DGS10 data)."),
+    ("5. FX Stability (15%)", "Evaluates currency pair stability and safe-haven behavior during market stress.")
 ]
-y = 800
 for title, desc in pillars_desc:
     c.setFillColor(HexColor('#1E293B'))
-    c.roundRect(80, y - 60, 920, 90, 15, fill=1, stroke=0)
+    c.roundRect(80, y - 90, 920, 130, 15, fill=1, stroke=0)
     c.setFillColor(TEXT_PRI)
-    c.setFont(f_bold, 32)
+    c.setFont(f_bold, 30)
     c.drawString(110, y - 10, title)
-    c.setFillColor(ACCENT_GRN)
-    c.setFont(f_reg, 28)
-    c.drawString(110, y - 45, desc)
-    y -= 110
+    draw_wrapped_text(c, desc, 110, y - 55, f_reg, 26, ACCENT_GRN, 60)
+    y -= 150
 c.showPage()
 
-# SLIDE 3
+# SLIDE 3: Data Architecture
 draw_bg()
 c.setFillColor(ACCENT_BLU)
-c.setFont(f_bold, 36)
+c.setFont(f_bold, 32)
 c.drawString(80, 1200, "02 / ENTERPRISE ARCHITECTURE")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 80)
-c.drawString(80, 1050, "Data Engineering")
-c.setFillColor(TEXT_SEC)
-c.setFont(f_reg, 38)
-text3 = [
-    "A strategic shift from fragile manual spreadsheets to an automated,",
-    "high-integrity pipeline.",
-    "",
-    "⚙️ Python & Pandas (ETL)",
-    "Ingesting over 4,200 days of raw data from the FRED API.",
-    "",
-    "🗄️ Relational Integrity (PostgreSQL)",
-    "The single source of truth. Enforcing strict data types and",
-    "managing exact FOMC meeting metadata.",
-    "",
-    "📊 Code-as-UI (Streamlit)",
-    "Moving away from unversioned drag-and-drop tools to",
-    "fully auditable, Git-versioned visualization layers."
-]
-y = 920
-for line in text3:
-    if line == "": y -= 30; continue
-    if line.startswith("⚙️") or line.startswith("🗄️") or line.startswith("📊"):
-        c.setFillColor(TEXT_PRI)
-        c.setFont(f_bold, 42)
-    else:
-        c.setFillColor(TEXT_SEC)
-        c.setFont(f_reg, 36)
-    c.drawString(80, y, line)
-    y -= 50
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Data Engineering")
+y = draw_wrapped_text(c, "A strategic shift from fragile manual spreadsheets to an automated, high-integrity pipeline.", 80, 960, f_reg, 34, TEXT_SEC, 50)
+y -= 60
+
+y = draw_wrapped_text(c, "⚙️ Python & Pandas (ETL)", 80, y, f_bold, 38, TEXT_PRI, 50)
+y = draw_wrapped_text(c, "Ingesting over 4,200 days of raw data directly from the FRED API. Eliminates human error.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
+y -= 60
+
+y = draw_wrapped_text(c, "🗄️ Relational Integrity (PostgreSQL)", 80, y, f_bold, 38, TEXT_PRI, 50)
+y = draw_wrapped_text(c, "The single source of truth. Enforcing strict data types and managing exact FOMC meeting metadata.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
+y -= 60
+
+y = draw_wrapped_text(c, "📊 Code-as-UI (Streamlit)", 80, y, f_bold, 38, TEXT_PRI, 50)
+y = draw_wrapped_text(c, "Moving away from unversioned drag-and-drop tools to fully auditable, Git-versioned visualization layers.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
+
 c.showPage()
 
-# SLIDE 4
+# SLIDE 4: NLP
 draw_bg()
 c.setFillColor(ACCENT_GRN)
-c.setFont(f_bold, 36)
+c.setFont(f_bold, 32)
 c.drawString(80, 1200, "03 / THE INNOVATION")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 80)
-c.drawString(80, 1050, "Objective NLP Sentiment")
-c.setFillColor(TEXT_SEC)
-c.setFont(f_reg, 38)
-text4 = [
-    "A central innovation of the CBCI is the use of Natural",
-    "Language Processing (NLP) to convert unstructured central",
-    "bank communications into quantitative data.",
-    "",
-    "🧠 The FinBERT Model",
-    "Specifically trained for financial contexts, parsing thousands",
-    "of FOMC statements to generate a precise hawkish-dovish scale.",
-    "",
-    "⚡ The 'Policy Shock' Metric",
-    "The model heavily penalizes central banks when dovish",
-    "communication is immediately followed by hawkish rate hikes.",
-    "These shocks are a primary driver of bond volatility."
-]
-y = 920
-for line in text4:
-    if line == "": y -= 30; continue
-    if line.startswith("🧠") or line.startswith("⚡"):
-        c.setFillColor(TEXT_PRI)
-        c.setFont(f_bold, 42)
-    else:
-        c.setFillColor(TEXT_SEC)
-        c.setFont(f_reg, 36)
-    c.drawString(80, y, line)
-    y -= 50
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Objective NLP Sentiment")
+
+y = draw_wrapped_text(c, "A central innovation of the CBCI is the use of Natural Language Processing (NLP) to convert unstructured central bank communications into quantitative data points.", 80, 960, f_reg, 34, TEXT_SEC, 50)
+y -= 60
+
+y = draw_wrapped_text(c, "🧠 The FinBERT Model", 80, y, f_bold, 38, TEXT_PRI, 50)
+y = draw_wrapped_text(c, "Specifically trained for financial contexts. FinBERT parses thousands of FOMC and ECB policy statements to generate a precise hawkish-dovish scale.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
+y -= 60
+
+y = draw_wrapped_text(c, "⚡ The 'Policy Shock' Metric", 80, y, f_bold, 38, TEXT_PRI, 50)
+y = draw_wrapped_text(c, "The model heavily penalizes central banks when dovish communication is immediately followed by hawkish actions. These shocks are a primary driver of catastrophic bond market volatility.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
+
 c.showPage()
 
-# SLIDE 5
+# SLIDE 5: Outcome
 draw_bg()
 c.setFillColor(ACCENT_BLU)
-c.setFont(f_bold, 36)
+c.setFont(f_bold, 32)
 c.drawString(80, 1200, "04 / THE OUTCOME")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 80)
-c.drawString(80, 1050, "Global Leaderboard")
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Global Leaderboard")
 
-c.drawImage(chart1_path, 80, 400, 920, 600, mask='auto')
+c.drawImage(chart1_path, 80, 430, 920, 580, mask='auto')
 
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 38)
-c.drawString(80, 320, "🏆 The Gold Standard: SNB (89.4)")
-c.setFillColor(TEXT_SEC)
-c.setFont(f_reg, 32)
-c.drawString(80, 270, "Maintained extreme FX stability and tight inflation anchoring.")
-
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 38)
-c.drawString(80, 180, "⚠️ The Laggards: PBOC & BOJ")
-c.setFillColor(TEXT_SEC)
-c.setFont(f_reg, 32)
-c.drawString(80, 130, "Penalized for lack of transparent guidance and YCC breakdown.")
+y = 350
+y = draw_wrapped_text(c, "🏆 The Gold Standard: SNB (89.4)", 80, y, f_bold, 36, TEXT_PRI, 50)
+y = draw_wrapped_text(c, "Maintained extreme FX stability and tight inflation anchoring throughout the 2020s.", 80, y-10, f_reg, 30, TEXT_SEC, 55)
+y -= 40
+y = draw_wrapped_text(c, "⚠️ Critical Laggard: PBOC (59.8)", 80, y, f_bold, 36, TEXT_PRI, 50)
+y = draw_wrapped_text(c, "Penalized for lack of transparent forward guidance and policy consistency.", 80, y-10, f_reg, 30, TEXT_SEC, 55)
 c.showPage()
 
-# SLIDE 6
+# SLIDE 6: Macro Shock
 draw_bg()
 c.setFillColor(ACCENT_GRN)
-c.setFont(f_bold, 36)
+c.setFont(f_bold, 32)
 c.drawString(80, 1200, "05 / MACRO SHOCK MONITOR")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 80)
-c.drawString(80, 1050, "Treasury Yield Dynamics")
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Treasury Yield Dynamics")
 
-c.drawImage(chart2_path, 80, 520, 920, 480, mask='auto')
+c.drawImage(chart2_path, 80, 550, 920, 480, mask='auto')
 
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 42)
-c.drawString(80, 420, "Final Takeaways for Audit & Oversight")
+y = 480
+y = draw_wrapped_text(c, "Final Takeaways for Audit & Oversight", 80, y, f_bold, 38, TEXT_PRI, 50)
+y -= 20
+y = draw_wrapped_text(c, "• Engineering Over Manual Logic: Transitioning to Python/SQL is essential for mitigating model risk.", 80, y, f_reg, 30, TEXT_SEC, 55)
+y -= 10
+y = draw_wrapped_text(c, "• Sentiment as a Hard Metric: NLP models turn rhetoric into tradable, measurable signals.", 80, y, f_reg, 30, TEXT_SEC, 55)
+y -= 10
+y = draw_wrapped_text(c, "• Consistency is the Asset: Credibility is the alignment of words, forecasts, and actions.", 80, y, f_reg, 30, TEXT_SEC, 55)
 
-c.setFillColor(TEXT_SEC)
-c.setFont(f_reg, 34)
-text6 = [
-    "• Engineering Over Manual Logic: Transitioning to Python/SQL",
-    "  is essential for mitigating model risk.",
-    "• Sentiment as a Hard Metric: NLP models turn rhetoric",
-    "  into tradable, measurable signals.",
-    "• Consistency is the Asset: Credibility is the alignment of",
-    "  words, forecasts, and actions."
-]
-y = 350
-for line in text6:
-    c.drawString(80, y, line)
-    y -= 45
-
-c.setFillColor(ACCENT_BLU)
-c.setFont(f_bold, 36)
-c.drawString(80, 100, "\"Trust is volatile. Rebuilding takes years, losing it takes one forecast.\"")
+y -= 40
+draw_wrapped_text(c, "\"In the modern financial landscape, trust is the most volatile asset of all. Rebuilding market trust takes years, but losing it takes only one missed forecast.\"", 80, y, f_bold, 30, ACCENT_BLU, 55)
 
 c.showPage()
 c.save()
-print('Successfully generated CBCI Whitepaper Carousel!')
+print('Successfully generated wrapped CBCI Whitepaper Carousel!')
