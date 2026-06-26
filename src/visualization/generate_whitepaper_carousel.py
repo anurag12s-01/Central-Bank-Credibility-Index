@@ -154,6 +154,111 @@ fig3.update_layout(
 chart3_path = os.path.join(img_dir, 'chart3_map.png')
 fig3.write_image(chart3_path, width=1200, height=600)
 
+# --- CHART 4: Policy vs Action Matrix (Bubble) ---
+fig4 = go.Figure()
+fig4.add_trace(go.Scatter(
+    x=df_scores['Policy Consistency (20%)'],
+    y=df_scores['Inflation Anchoring (30%)'],
+    mode='markers+text',
+    text=df_scores['Central Bank'],
+    textposition="top center",
+    textfont=dict(family='Inter', size=14, color='white'),
+    marker=dict(
+        size=df_scores['Total Score'],
+        sizemode='area',
+        sizeref=2.*max(df_scores['Total Score'])/(50.**2),
+        color=df_scores['Total Score'],
+        colorscale='RdYlGn',
+        showscale=True,
+        colorbar=dict(title=dict(text="CBCI Score", font=dict(color='white')), tickfont=dict(color='white')),
+        line=dict(width=2, color='white')
+    )
+))
+
+x_mid = df_scores['Policy Consistency (20%)'].mean()
+y_mid = df_scores['Inflation Anchoring (30%)'].mean()
+fig4.add_vline(x=x_mid, line_dash="dash", line_color="#94A3B8")
+fig4.add_hline(y=y_mid, line_dash="dash", line_color="#94A3B8")
+
+fig4.add_annotation(x=x_mid + 2, y=y_mid + 3, text="Strong Anchors & Consistency", showarrow=False, font=dict(color="#10B981", size=14))
+fig4.add_annotation(x=x_mid - 2, y=y_mid - 3, text="Weak Anchors & Consistency", showarrow=False, font=dict(color="#EF4444", size=14))
+
+fig4.update_layout(
+    title=dict(text="Policy vs Action Matrix", font=dict(size=24, family='Inter', color='white'), x=0.5),
+    xaxis_title="Policy Consistency Score (Max 20)",
+    yaxis_title="Inflation Anchoring Score (Max 30)",
+    font=dict(family='Inter', color='white'),
+    xaxis=dict(showgrid=False, zeroline=False),
+    yaxis=dict(gridcolor='#1E293B', zeroline=False),
+    paper_bgcolor='#0B0F19',
+    plot_bgcolor='#0B0F19',
+    margin=dict(l=40, r=40, t=60, b=40)
+)
+chart4_path = os.path.join(img_dir, 'chart4_bubble.png')
+fig4.write_image(chart4_path, width=1200, height=600)
+
+# --- CHART 5: Credibility Anatomy (Radar) ---
+categories = ['Inflation Anchoring (30%)', 'Policy Consistency (20%)', 'Forecast Accuracy (20%)', 'Bond Confidence (15%)', 'FX Stability (15%)']
+fig5 = go.Figure()
+for bank, color in zip(['SNB', 'FED', 'PBOC'], ['#10B981', '#3B82F6', '#EF4444']):
+    bank_data = df_scores[df_scores['Central Bank'] == bank].iloc[0]
+    max_scores = [30.0, 20.0, 20.0, 15.0, 15.0]
+    values = [bank_data[cat]/mx * 100 for cat, mx in zip(categories, max_scores)]
+    values.append(values[0])
+    cat_closed = [c.split(' (')[0] for c in categories] + [categories[0].split(' (')[0]]
+    fig5.add_trace(go.Scatterpolar(
+        r=values,
+        theta=cat_closed,
+        fill='toself',
+        name=bank,
+        line_color=color,
+        opacity=0.6
+    ))
+fig5.update_layout(
+    title=dict(text="Credibility Anatomy: % of Max Potential Achieved", font=dict(size=24, family='Inter', color='white'), x=0.5),
+    polar=dict(
+        radialaxis=dict(visible=True, range=[0, 100], gridcolor='#334155', linecolor='#334155', tickfont=dict(color='#94A3B8')),
+        angularaxis=dict(gridcolor='#334155', linecolor='#334155', tickfont=dict(color='white', size=16)),
+        bgcolor='#0B0F19'
+    ),
+    font=dict(family='Inter', color='white'),
+    paper_bgcolor='#0B0F19',
+    showlegend=True,
+    legend=dict(orientation="h", yanchor="bottom", y=-0.2, xanchor="center", x=0.5, font=dict(size=16)),
+    margin=dict(l=80, r=80, t=80, b=80)
+)
+chart5_path = os.path.join(img_dir, 'chart5_radar.png')
+fig5.write_image(chart5_path, width=1200, height=700)
+
+# --- CHART 6: Volatility Heatmap ---
+# Calculate rolling 30-day volatility of the 10-Year yield
+df_macro['volatility'] = df_macro['value'].rolling(window=30).std()
+# Create a monthly aggregated heatmap
+df_macro['year_month'] = df_macro['date'].dt.to_period('M')
+df_heatmap = df_macro.groupby('year_month')['volatility'].mean().reset_index()
+df_heatmap['year'] = df_heatmap['year_month'].dt.year
+df_heatmap['month'] = df_heatmap['year_month'].dt.month
+pivot = df_heatmap.pivot(index='year', columns='month', values='volatility')
+
+fig6 = go.Figure(data=go.Heatmap(
+    z=pivot.values,
+    x=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    y=pivot.index,
+    colorscale='Reds',
+    colorbar=dict(title=dict(text="Volatility (std dev)", font=dict(color='white')), tickfont=dict(color='white'))
+))
+fig6.update_layout(
+    title=dict(text="Macro Shock Intensity: 10-Year Treasury Yield Volatility", font=dict(size=24, family='Inter', color='white'), x=0.5),
+    font=dict(family='Inter', color='white'),
+    xaxis=dict(showgrid=False),
+    yaxis=dict(showgrid=False, autorange="reversed"),
+    paper_bgcolor='#0B0F19',
+    plot_bgcolor='#0B0F19',
+    margin=dict(l=40, r=40, t=60, b=40)
+)
+chart6_path = os.path.join(img_dir, 'chart6_heatmap.png')
+fig6.write_image(chart6_path, width=1200, height=600)
+
 # --- GENERATE PDF CAROUSEL ---
 pdf_path = os.path.join(out_dir, 'CBCI_Whitepaper_Carousel.pdf')
 c = canvas.Canvas(pdf_path, pagesize=(1080, 1350))
@@ -304,9 +409,7 @@ c.drawString(80, 1200, "05 / THE OUTCOME")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 70)
 c.drawString(80, 1080, "Global Leaderboard")
-
 c.drawImage(chart1_path, 80, 430, 920, 580, mask='auto')
-
 y = 350
 y = draw_wrapped_text(c, "🏆 The Gold Standard: SNB (89.4)", 80, y, f_bold, 36, TEXT_PRI, 50)
 y = draw_wrapped_text(c, "Maintained extreme FX stability and tight inflation anchoring throughout the 2020s.", 80, y-10, f_reg, 30, TEXT_SEC, 55)
@@ -315,29 +418,68 @@ y = draw_wrapped_text(c, "⚠️ Critical Laggard: PBOC (59.8)", 80, y, f_bold, 
 y = draw_wrapped_text(c, "Penalized for lack of transparent forward guidance and policy consistency.", 80, y-10, f_reg, 30, TEXT_SEC, 55)
 c.showPage()
 
-# SLIDE 7: Macro Shock
+# SLIDE 7: Policy vs Action
+draw_bg()
+c.setFillColor(ACCENT_BLU)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "06 / ADVANCED ANALYTICS")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Policy vs Action Matrix")
+c.drawImage(chart4_path, 80, 430, 920, 580, mask='auto')
+c.showPage()
+
+# SLIDE 8: Radar Chart
 draw_bg()
 c.setFillColor(ACCENT_GRN)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "06 / MACRO SHOCK MONITOR")
+c.drawString(80, 1200, "07 / ADVANCED ANALYTICS")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Credibility Anatomy")
+c.drawImage(chart5_path, 80, 350, 920, 680, mask='auto')
+c.showPage()
+
+# SLIDE 9: Macro Shock
+draw_bg()
+c.setFillColor(ACCENT_GRN)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "08 / MACRO SHOCK MONITOR")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 70)
 c.drawString(80, 1080, "Treasury Yield Dynamics")
-
 c.drawImage(chart2_path, 80, 550, 920, 480, mask='auto')
-
 y = 480
-y = draw_wrapped_text(c, "Final Takeaways for Audit & Oversight", 80, y, f_bold, 38, TEXT_PRI, 50)
-y -= 20
-y = draw_wrapped_text(c, "• Engineering Over Manual Logic: Transitioning to Python/SQL is essential for mitigating model risk.", 80, y, f_reg, 30, TEXT_SEC, 55)
-y -= 10
-y = draw_wrapped_text(c, "• Sentiment as a Hard Metric: NLP models turn rhetoric into tradable, measurable signals.", 80, y, f_reg, 30, TEXT_SEC, 55)
-y -= 10
-y = draw_wrapped_text(c, "• Consistency is the Asset: Credibility is the alignment of words, forecasts, and actions.", 80, y, f_reg, 30, TEXT_SEC, 55)
+y = draw_wrapped_text(c, "Market memory is short, but the bond market always remembers.", 80, y, f_bold, 38, TEXT_PRI, 50)
+c.showPage()
 
+# SLIDE 10: Volatility Heatmap
+draw_bg()
+c.setFillColor(ACCENT_GRN)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "09 / MACRO SHOCK MONITOR")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Yield Volatility Heatmap")
+c.drawImage(chart6_path, 80, 430, 920, 580, mask='auto')
+c.showPage()
+
+# SLIDE 11: Final Takeaways
+draw_bg()
+c.setFillColor(ACCENT_BLU)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "10 / CONCLUSION")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Final Takeaways for Audit")
+y = 900
+y = draw_wrapped_text(c, "• Engineering Over Manual Logic: Transitioning to Python/SQL is essential for mitigating model risk.", 80, y, f_reg, 34, TEXT_SEC, 55)
 y -= 40
-draw_wrapped_text(c, "\"In the modern financial landscape, trust is the most volatile asset of all. Rebuilding market trust takes years, but losing it takes only one missed forecast.\"", 80, y, f_bold, 30, ACCENT_BLU, 55)
-
+y = draw_wrapped_text(c, "• Sentiment as a Hard Metric: NLP models turn rhetoric into tradable, measurable signals.", 80, y, f_reg, 34, TEXT_SEC, 55)
+y -= 40
+y = draw_wrapped_text(c, "• Consistency is the Asset: Credibility is the alignment of words, forecasts, and actions.", 80, y, f_reg, 34, TEXT_SEC, 55)
+y -= 80
+draw_wrapped_text(c, "\"In the modern financial landscape, trust is the most volatile asset of all. Rebuilding market trust takes years, but losing it takes only one missed forecast.\"", 80, y, f_bold, 34, ACCENT_BLU, 55)
 c.showPage()
 c.save()
 print('Successfully generated wrapped CBCI Whitepaper Carousel!')
