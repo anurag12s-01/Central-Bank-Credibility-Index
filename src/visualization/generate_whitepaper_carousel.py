@@ -103,6 +103,57 @@ chart2_path = os.path.join(img_dir, 'chart2_macro.png')
 fig2.write_image(chart2_path, width=1200, height=600)
 
 
+# --- CHART 3: Global Credibility Map ---
+bank_coords = {
+    'SNB': (46.8, 8.2, 'Switzerland'), 'FED': (38.9, -77.0, 'USA'),
+    'ECB': (50.1, 8.6, 'Eurozone'), 'BOE': (51.5, -0.1, 'UK'),
+    'BOC': (45.4, -75.7, 'Canada'), 'RBA': (-35.3, 149.1, 'Australia'),
+    'BOJ': (35.6, 139.6, 'Japan'), 'BCB': (-15.8, -47.9, 'Brazil'),
+    'RBI': (19.0, 72.8, 'India'), 'PBOC': (39.9, 116.4, 'China')
+}
+
+df_map = df_scores.copy()
+df_map['Lat'] = df_map['Central Bank'].map(lambda x: bank_coords[x][0])
+df_map['Lon'] = df_map['Central Bank'].map(lambda x: bank_coords[x][1])
+df_map['Country'] = df_map['Central Bank'].map(lambda x: bank_coords[x][2])
+df_map['Label'] = df_map['Central Bank'] + ": " + df_map['Total Score'].astype(str)
+
+fig3 = go.Figure(data=go.Scattergeo(
+    lon=df_map['Lon'],
+    lat=df_map['Lat'],
+    text=df_map['Label'],
+    mode='markers+text',
+    textposition="top center",
+    textfont=dict(family='Inter', size=16, color='white'),
+    marker=dict(
+        size=df_map['Total Score'] / 3,
+        color=df_map['Total Score'],
+        colorscale='RdYlGn',
+        cmin=50, cmax=90,
+        showscale=True,
+        colorbar=dict(title=dict(text="CBCI Score", font=dict(color='white')), tickfont=dict(color='white')),
+        line=dict(width=1, color='white')
+    )
+))
+
+fig3.update_layout(
+    title=dict(text="Global Credibility Heatmap", font=dict(size=24, family='Inter', color='white'), x=0.5),
+    geo=dict(
+        showframe=False,
+        showcoastlines=True, coastlinecolor="#334155",
+        showland=True, landcolor="#0f172a",
+        showocean=True, oceancolor="#0B0F19",
+        showcountries=True, countrycolor="#1E293B",
+        bgcolor='#0B0F19',
+        projection_type='equirectangular'
+    ),
+    paper_bgcolor='#0B0F19',
+    plot_bgcolor='#0B0F19',
+    margin=dict(l=0, r=0, t=60, b=0)
+)
+chart3_path = os.path.join(img_dir, 'chart3_map.png')
+fig3.write_image(chart3_path, width=1200, height=600)
+
 # --- GENERATE PDF CAROUSEL ---
 pdf_path = os.path.join(out_dir, 'CBCI_Whitepaper_Carousel.pdf')
 c = canvas.Canvas(pdf_path, pagesize=(1080, 1350))
@@ -116,6 +167,14 @@ ACCENT_GRN = HexColor('#10B981')
 def draw_bg():
     c.setFillColor(BG_COLOR)
     c.rect(0, 0, 1080, 1350, fill=1, stroke=0)
+
+def draw_slide_header(canvas_obj, tag, title, color=ACCENT_BLU):
+    canvas_obj.setFillColor(color)
+    canvas_obj.setFont(f_bold, 32)
+    canvas_obj.drawString(80, 1200, tag)
+    canvas_obj.setFillColor(TEXT_PRI)
+    canvas_obj.setFont(f_bold, 70)
+    canvas_obj.drawString(80, 1100, title)
 
 def draw_wrapped_text(canvas_obj, text, x, y, font, size, color, max_width_chars=45, line_height=None):
     if line_height is None:
@@ -219,11 +278,29 @@ y = draw_wrapped_text(c, "The model heavily penalizes central banks when dovish 
 
 c.showPage()
 
-# SLIDE 5: Outcome
+# SLIDE 5: Map
+draw_bg()
+c.setFillColor(ACCENT_GRN)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "04 / GEOGRAPHIC CONTEXT")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 70)
+c.drawString(80, 1080, "Global Credibility Heatmap")
+c.drawImage(chart3_path, 80, 550, 920, 480, mask='auto')
+y = 500
+c.setFillColor(HexColor('#1E293B'))
+c.roundRect(80, y - 140, 920, 140, 15, fill=1, stroke=0)
+c.setFillColor(ACCENT_BLU)
+c.setFont(f_bold, 34)
+c.drawString(110, y - 40, "🌍 The Analyst Insight")
+draw_wrapped_text(c, "Institutional trust is heavily concentrated in Western European and North American hubs, showing strong structural resilience compared to emerging markets and heavily opaque regimes.", 110, y - 80, f_reg, 26, TEXT_PRI, 60)
+c.showPage()
+
+# SLIDE 6: Outcome
 draw_bg()
 c.setFillColor(ACCENT_BLU)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "04 / THE OUTCOME")
+c.drawString(80, 1200, "05 / THE OUTCOME")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 70)
 c.drawString(80, 1080, "Global Leaderboard")
@@ -238,11 +315,11 @@ y = draw_wrapped_text(c, "⚠️ Critical Laggard: PBOC (59.8)", 80, y, f_bold, 
 y = draw_wrapped_text(c, "Penalized for lack of transparent forward guidance and policy consistency.", 80, y-10, f_reg, 30, TEXT_SEC, 55)
 c.showPage()
 
-# SLIDE 6: Macro Shock
+# SLIDE 7: Macro Shock
 draw_bg()
 c.setFillColor(ACCENT_GRN)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "05 / MACRO SHOCK MONITOR")
+c.drawString(80, 1200, "06 / MACRO SHOCK MONITOR")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 70)
 c.drawString(80, 1080, "Treasury Yield Dynamics")
