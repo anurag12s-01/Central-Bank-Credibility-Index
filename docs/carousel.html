@@ -3,338 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBCI LinkedIn Carousel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Central Bank Credibility Index - MBA Carousel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        @page {
-            size: 1080px 1350px;
-            margin: 0;
+        :root {
+            --bg-color: #0B0F19;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-pri: #F8FAFC;
+            --text-sec: #94A3B8;
+            --accent-blue: #3B82F6;
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
         }
-        body {
+        
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            font-family: 'Inter', sans-serif;
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            gap: 40px;
+        }
+
         .slide {
             width: 1080px;
             height: 1350px;
-            box-sizing: border-box;
-            background: linear-gradient(135deg, #0B0F19 0%, #0f172a 100%);
-            color: #F8FAFC;
-            page-break-after: always;
+            background: linear-gradient(145deg, #0f172a, #020617);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 100px 80px;
+            color: var(--text-pri);
             position: relative;
             overflow: hidden;
-            padding: 60px 80px;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
-        .slide::after {
-            content: "Central Bank Credibility Index (CBCI) • Swipe ➔";
-            position: absolute;
-            bottom: 50px;
-            left: 80px;
-            color: #475569;
-            font-weight: 600;
-            font-size: 26px;
-            letter-spacing: 1px;
-        }
-        .slide.last-slide::after {
-            content: "Central Bank Credibility Index (CBCI)";
-        }
-        
+
+        /* MBA Action Title Style */
         .tag {
-            font-size: 34px;
+            display: inline-block;
+            font-size: 24px;
             font-weight: 800;
-            color: #3B82F6;
-            letter-spacing: 2px;
+            color: var(--accent-blue);
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
-        .tag.green { color: #10B981; }
+        .tag.green { color: var(--accent-green); }
+        .tag.red { color: var(--accent-red); }
         
         h1 {
-            font-size: 95px;
+            font-size: 85px;
             font-weight: 800;
-            margin: 0 0 40px 0;
             line-height: 1.1;
-            background: -webkit-linear-gradient(0deg, #F8FAFC, #94A3B8);
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         h2 {
-            font-size: 75px;
+            font-size: 55px;
             font-weight: 800;
-            margin: 0 0 50px 0;
-            line-height: 1.1;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 40px;
         }
+
         p {
-            font-size: 34px;
+            font-size: 32px;
             line-height: 1.6;
-            color: #94A3B8;
-            margin: 0 0 40px 0;
+            color: var(--text-sec);
+            font-weight: 300;
         }
-        .highlight {
-            color: #F8FAFC;
-            font-weight: 600;
-        }
-        .card-container {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-top: 20px;
-        }
-        .card-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 20px;
-        }
-        .info-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 2px solid rgba(51, 65, 85, 0.5);
-            border-radius: 24px;
-            padding: 40px;
-        }
-        .info-card h3 {
-            font-size: 34px;
-            margin: 0 0 10px 0;
-            color: #F8FAFC;
-        }
-        .info-card p {
-            font-size: 28px;
-            margin: 0;
-            color: #cbd5e1;
-            line-height: 1.5;
-        }
+
+        .highlight { color: var(--text-pri); font-weight: 600; }
+
         .chart-img {
             width: 100%;
-            border-radius: 20px;
-            border: 2px solid #334155;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            height: auto;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             margin-top: 20px;
         }
-        .takeaway {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
+
+        /* MECE Framework Grid */
+        .mece-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
         }
-        .takeaway-icon {
-            font-size: 36px;
-            margin-right: 20px;
-            margin-top: 5px;
-        }
-        .quote {
-            font-size: 42px;
-            font-style: italic;
-            font-weight: 600;
-            color: #3B82F6;
-            text-align: center;
-            margin-top: auto;
-            margin-bottom: 60px;
+
+        .mece-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
             padding: 40px;
-            border-top: 1px solid #334155;
-            border-bottom: 1px solid #334155;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mece-card h3 {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-pri);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            color: var(--accent-blue);
+        }
+        .icon.green { color: var(--accent-green); }
+        .icon.red { color: var(--accent-red); }
+
+        .insight-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 6px solid var(--accent-green);
+            padding: 30px 40px;
+            margin-top: 40px;
+            border-radius: 0 16px 16px 0;
+        }
+        .insight-box p { color: #D1D5DB; margin: 0; font-size: 28px; }
+
+        .number-large {
+            font-size: 140px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.03);
+            position: absolute;
+            top: 40px;
+            right: 60px;
+            line-height: 1;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                gap: 0;
+                background-color: transparent;
+            }
+            .slide {
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                break-after: always;
+                page-break-after: always;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- SLIDE 1 -->
+    <!-- SLIDE 1: Title -->
     <div class="slide">
-        <div class="tag">Project Overview</div>
-        <h1>The Central Bank<br>Credibility Index</h1>
-        <p style="margin-top: 40px;">The 2022 global inflation crisis served as a watershed moment for modern monetary policy.</p>
-        <p>The <span class="highlight">"Transitory Inflation"</span> narrative was a strategic miscalculation that led to a total breakdown in forward guidance, stripping markets of their primary navigational tools.</p>
-        <p>To mitigate these risks, the CBCI was developed as a <span class="highlight">rigorous, data-driven framework</span> to quantify institutional trust and extract asymmetric insights from policy behavior.</p>
-    </div>
-
-    <!-- SLIDE 2 (NEW) -->
-    <div class="slide">
-        <div class="tag">01 / The Stakes</div>
-        <h2>Why Credibility Matters</h2>
-        <div style="margin-top: 40px;">
-            <p style="font-size: 44px; font-weight: 800; color: #F8FAFC;">Credibility is the currency of central banking. When it fractures, markets break.</p>
-            <p style="margin-top: 40px;">Over the last decade, we have transitioned from a regime of Forward Guidance to acute Policy Shocks. The market no longer implicitly trusts official projections.</p>
-            <p style="margin-top: 40px;">This index strips away subjective narrative to quantify trust using 5 mathematical pillars.</p>
+        <div class="number-large">01</div>
+        <div style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <div class="tag">Quantitative Research</div>
+            <h1 style="margin-bottom: 40px;">The Central Bank Credibility Index</h1>
+            <p style="font-size: 40px; color: var(--accent-blue); font-weight: 600; margin-bottom: 60px;">Measuring Institutional Trust in the Era of Policy Shocks</p>
+            <p>A rigorous, data-driven framework quantifying the exact risk premium of central bank communication, forecasting, and policy execution.</p>
         </div>
     </div>
 
-    <!-- SLIDE 3 -->
+    <!-- SLIDE 2: Situation -->
     <div class="slide">
-        <div class="tag">02 / The Framework</div>
-        <h2>The 5-Pillar Model</h2>
-        <p>A definitive 0–100 score insulated from subjective bias:</p>
+        <div class="number-large">02</div>
+        <div class="tag">I. The Situation</div>
+        <h2>Credibility is the ultimate currency of central banking. When it fractures, markets break.</h2>
+        <div style="margin-top: 80px;">
+            <p style="font-size: 38px; margin-bottom: 50px;">Over the last decade, we transitioned from an era of <span class="highlight">Forward Guidance</span> to one of acute <span class="highlight">Policy Shocks</span>.</p>
+            <p style="font-size: 38px; margin-bottom: 50px;">The market no longer implicitly trusts official projections. Subjective narratives and central bank "Fedspeak" fail to accurately price in systemic risk.</p>
+            <p style="font-size: 38px;">We need a mathematical framework to strip away the rhetoric and measure trust objectively.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: Complication (Heatmap) -->
+    <div class="slide">
+        <div class="number-large">03</div>
+        <div class="tag red">II. The Complication</div>
+        <h2>The Cost of Broken Trust: Yield Volatility</h2>
+        <p style="margin-bottom: 40px;">Market memory is short, but the bond market always remembers. Yield spikes perfectly align with macro policy shocks.</p>
+        <img src="temp_images/chart6_heatmap.png" class="chart-img" alt="Yield Volatility Heatmap">
+        <div class="insight-box" style="background: rgba(239, 68, 68, 0.1); border-left-color: var(--accent-red);">
+            <p><strong>Strategic Insight:</strong> The deepest reds correlate perfectly with periods where central banks abandoned forward guidance, triggering massive institutional panic.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: Framework (MECE) -->
+    <div class="slide">
+        <div class="number-large">04</div>
+        <div class="tag">III. The Framework</div>
+        <h2>A 5-Pillar Quantitative Model</h2>
+        <p>A definitive 0–100 score completely insulated from subjective bias, structured across mutually exclusive metrics:</p>
+        <div class="mece-grid">
+            <div class="mece-card">
+                <h3>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    Inflation Anchoring (30%)
+                </h3>
+                <p style="font-size: 24px;">Deviation of actual CPI from the official mandate target over a 5-year rolling window.</p>
+            </div>
+            <div class="mece-card">
+                <h3>
+                    <svg class="icon green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Policy Consistency (20%)
+                </h3>
+                <p style="font-size: 24px;">NLP-driven measurement (FinBERT) of divergence between forward guidance and actual rate decisions.</p>
+            </div>
+            <div class="mece-card">
+                <h3>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                    Forecast Accuracy (20%)
+                </h3>
+                <p style="font-size: 24px;">Mean Absolute Error (MAE) of the central bank's GDP and inflation projections vs reality.</p>
+            </div>
+            <div class="mece-card">
+                <h3>
+                    <svg class="icon red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Market Confidence (30%)
+                </h3>
+                <p style="font-size: 24px;">Combined scoring of sovereign bond yield volatility (15%) and FX reserves stability (15%).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: Proof 1 (Map) -->
+    <div class="slide">
+        <div class="number-large">05</div>
+        <div class="tag green">IV. Data Proof</div>
+        <h2>Credibility is Geopolitically Concentrated</h2>
+        <p style="margin-bottom: 40px;">Mapping the total index scores reveals severe structural deficits outside major Western hubs.</p>
+        <img src="temp_images/chart3_map.png" class="chart-img" alt="Global Credibility Map">
+        <div class="insight-box">
+            <p><strong>Strategic Insight:</strong> Institutional trust remains heavily entrenched in Northern Europe and North America, granting them an asymmetric pricing advantage in global debt markets.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Proof 2 (Leaderboard) -->
+    <div class="slide">
+        <div class="number-large">06</div>
+        <div class="tag">V. The Outcome</div>
+        <h2>The Global Leaderboard</h2>
+        <p style="margin-bottom: 20px;">The Swiss National Bank (SNB) operates as the absolute gold standard for institutional trust.</p>
+        <img src="temp_images/chart1_stacked.png" class="chart-img" alt="Global Leaderboard Stacked Bar">
+        <div class="insight-box" style="background: rgba(59, 130, 246, 0.1); border-left-color: var(--accent-blue);">
+            <p><strong>Strategic Insight:</strong> The PBOC and BOJ bleed massive credibility on policy opacity and FX volatility, whereas the SNB achieves near-perfect symmetric scoring.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Insight (Quadrant) -->
+    <div class="slide">
+        <div class="number-large">07</div>
+        <div class="tag blue">VI. Strategic Insight</div>
+        <h2>The Consistency Premium Matrix</h2>
+        <p style="margin-bottom: 20px;">Separating central banks by their ability to anchor inflation vs. execute on communication.</p>
+        <img src="temp_images/chart4_bubble.png" class="chart-img" alt="Policy vs Action Bubble Matrix">
+        <div class="insight-box">
+            <p><strong>Strategic Insight:</strong> Banks in the top-right deliver on their forward guidance, requiring zero risk premium. Banks in the bottom-left suffer from structural deficits.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: Conclusion -->
+    <div class="slide">
+        <div class="number-large">08</div>
+        <div class="tag">VII. Executive Summary</div>
+        <h2 style="margin-bottom: 50px;">Final Takeaways for Asset Allocators</h2>
         
-        <div class="card-grid">
-            <div class="info-card">
-                <h3 style="color: #10B981;">1. Inflation Anchoring (30%)</h3>
-                <p>Absolute deviation of headline inflation from official targets over a 12-month window.</p>
+        <div style="display: flex; flex-direction: column; gap: 50px;">
+            <div style="display: flex; gap: 30px; align-items: flex-start;">
+                <svg class="icon" style="width: 60px; height: 60px; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <div>
+                    <h3 style="font-size: 34px; margin-bottom: 15px; color: var(--text-pri);">Engineering Over Manual Logic</h3>
+                    <p>Transitioning macro models to Python/SQL pipelines is essential for mitigating subjectivity and model risk.</p>
+                </div>
             </div>
-            <div class="info-card">
-                <h3 style="color: #3B82F6;">2. Policy Consistency (20%)</h3>
-                <p>Evaluates NLP alignment between communication (FinBERT) and subsequent interest rate moves.</p>
+            <div style="display: flex; gap: 30px; align-items: flex-start;">
+                <svg class="icon green" style="width: 60px; height: 60px; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <div>
+                    <h3 style="font-size: 34px; margin-bottom: 15px; color: var(--text-pri);">Sentiment is a Hard Metric</h3>
+                    <p>Advanced NLP models (like FinBERT) successfully turn central bank rhetoric into tradable, measurable signals.</p>
+                </div>
             </div>
-            <div class="info-card">
-                <h3 style="color: #A855F7;">3. Forecast Accuracy (20%)</h3>
-                <p>Quantifies Mean Absolute Error (MAE) of central bank economic projections.</p>
+            <div style="display: flex; gap: 30px; align-items: flex-start;">
+                <svg class="icon blue" style="width: 60px; height: 60px; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                <div>
+                    <h3 style="font-size: 34px; margin-bottom: 15px; color: var(--text-pri);">Consistency is the Asset</h3>
+                    <p>Credibility is not about hawk vs. dove. It is the strict mathematical alignment of words, forecasts, and actions.</p>
+                </div>
             </div>
-            <div class="info-card">
-                <h3 style="color: #C084FC;">4. Bond Confidence (15%)</h3>
-                <p>Tracks rolling volatility in sovereign bonds (FRED DGS10).</p>
-            </div>
-            <div class="info-card" style="grid-column: span 2;">
-                <h3 style="color: #FF8A65;">5. FX Stability (15%)</h3>
-                <p>Evaluates currency pair safe-haven behavior during market stress.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 4 -->
-    <div class="slide">
-        <div class="tag">03 / The Architecture</div>
-        <h2>Data Sourcing & Stack</h2>
-        <p>A strategic shift from fragile manual spreadsheets to an automated, high-integrity pipeline.</p>
-        
-        <div class="card-container" style="margin-top: 40px;">
-            <div class="info-card">
-                <h3>⚙️ Python & Pandas (ETL)</h3>
-                <p>Programmatically ingesting over 4,200 days of raw data from the FRED API. Eliminates human error.</p>
-            </div>
-            <div class="info-card">
-                <h3>🗄️ Relational Integrity (PostgreSQL)</h3>
-                <p>The single source of truth. Enforcing strict data types and managing exact FOMC meeting metadata.</p>
-            </div>
-            <div class="info-card">
-                <h3>📊 Code-as-UI (Streamlit)</h3>
-                <p>Moving away from unversioned drag-and-drop tools to fully auditable, Git-versioned visualization layers.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 4 -->
-    <div class="slide">
-        <div class="tag green">03 / The Innovation</div>
-        <h2>Objective NLP Sentiment</h2>
-        <p>Converting unstructured central bank communications into quantitative data points.</p>
-        
-        <div class="card-container" style="margin-top: 40px;">
-            <div class="info-card">
-                <h3>🧠 The FinBERT Model</h3>
-                <p>Specifically trained for financial contexts. FinBERT parses thousands of FOMC and ECB policy statements to generate a precise hawkish-dovish scale.</p>
-            </div>
-            <div class="info-card" style="border-color: rgba(239, 68, 68, 0.5);">
-                <h3 style="color: #EF4444;">⚡ The 'Policy Shock' Metric</h3>
-                <p>The model heavily penalizes central banks when dovish communication is immediately followed by hawkish actions. These shocks are a primary driver of catastrophic bond market volatility.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 6 -->
-    <div class="slide">
-        <div class="tag green">05 / Geographic Context</div>
-        <h2 style="margin-bottom: 20px;">Global Credibility Heatmap</h2>
-        <img src="temp_images/chart3_map.png" class="chart-img" alt="Global Map Chart">
-        
-        <div class="card-grid" style="margin-top: 40px;">
-            <div class="info-card" style="padding: 30px; grid-column: span 2; border-color: rgba(59, 130, 246, 0.3);">
-                <h3 style="color: #3B82F6;">🌍 The Analyst Insight</h3>
-                <p>Institutional trust is heavily concentrated in Western European and North American hubs, showing strong structural resilience compared to emerging markets and heavily opaque regimes.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 7 -->
-    <div class="slide">
-        <div class="tag">06 / The Outcome</div>
-        <h2 style="margin-bottom: 20px;">Global Leaderboard</h2>
-        <img src="temp_images/chart1_stacked.png" class="chart-img" alt="Leaderboard Chart">
-        
-        <div class="card-grid" style="margin-top: 40px;">
-            <div class="info-card" style="padding: 30px;">
-                <h3>🏆 The Gold Standard: SNB (89.4)</h3>
-                <p>Maintained extreme FX stability and tight inflation anchoring throughout the 2020s.</p>
-            </div>
-            <div class="info-card" style="padding: 30px; border-color: rgba(239, 68, 68, 0.3);">
-                <h3 style="color: #EF4444;">⚠️ Critical Laggard: PBOC (59.8)</h3>
-                <p>Penalized for lack of transparent forward guidance and policy consistency.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 8 -->
-    <div class="slide">
-        <div class="tag">07 / Advanced Analytics</div>
-        <h2 style="margin-bottom: 20px;">Policy vs Action Matrix</h2>
-        <img src="temp_images/chart4_bubble.png" class="chart-img" alt="Bubble Chart">
-        <div class="card-grid" style="margin-top: 40px;">
-            <div class="info-card" style="padding: 30px; grid-column: span 2; border-color: rgba(16, 185, 129, 0.3);">
-                <h3 style="color: #10B981;">🎯 The Consistency Premium</h3>
-                <p>Banks in the top-right quadrant deliver on their forward guidance, requiring zero risk premium. Banks in the bottom-left suffer from structural credibility deficits.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 9 -->
-    <div class="slide">
-        <div class="tag green">08 / Advanced Analytics</div>
-        <h2 style="margin-bottom: 20px;">Credibility Anatomy</h2>
-        <img src="temp_images/chart5_radar.png" class="chart-img" alt="Radar Chart">
-        <div class="card-grid" style="margin-top: 40px;">
-            <div class="info-card" style="padding: 30px; grid-column: span 2;">
-                <h3>🔍 Structural Vulnerabilities</h3>
-                <p>The radar exposes the PBOC's total collapse in Policy Consistency, while the FED bleeds points on Inflation Anchoring relative to the SNB's near-perfect geometric symmetry.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 9 -->
-    <div class="slide">
-        <div class="tag green">09 / Macro Shock Monitor</div>
-        <h2 style="margin-bottom: 20px;">Treasury Yield Dynamics</h2>
-        <img src="temp_images/chart2_macro.png" class="chart-img" alt="Macro Chart">
-        <div class="card-grid" style="margin-top: 40px;">
-            <div class="info-card" style="padding: 30px; grid-column: span 2;">
-                <h3>📉 Market Memory is Short</h3>
-                <p>However, the bond market always remembers. Yield spikes perfectly align with macro policy shocks.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 10 -->
-    <div class="slide">
-        <div class="tag green">09 / Macro Shock Monitor</div>
-        <h2 style="margin-bottom: 20px;">Yield Volatility Heatmap</h2>
-        <img src="temp_images/chart6_heatmap.png" class="chart-img" alt="Heatmap Chart">
-        <div class="card-grid" style="margin-top: 40px;">
-            <div class="info-card" style="padding: 30px; grid-column: span 2; border-color: rgba(239, 68, 68, 0.3);">
-                <h3 style="color: #EF4444;">🔥 Crisis Contagion</h3>
-                <p>The deepest reds correlate perfectly with periods where central banks abandoned forward guidance, triggering massive bond market sell-offs and institutional panic.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 11 -->
-    <div class="slide last-slide">
-        <div class="tag">10 / Conclusion</div>
-        <h2 style="margin-bottom: 20px;">Final Takeaways for Audit</h2>
-        <div class="takeaway" style="margin-top: 40px;">
-            <div class="takeaway-icon">🛡️</div>
-            <p style="margin:0;"><span class="highlight">Engineering Over Manual Logic:</span> Transitioning to Python/SQL is essential for mitigating model risk.</p>
-        </div>
-        <div class="takeaway">
-            <div class="takeaway-icon">📈</div>
-            <p style="margin:0;"><span class="highlight">Sentiment as a Hard Metric:</span> NLP models turn rhetoric into tradable, measurable signals.</p>
-        </div>
-        <div class="takeaway">
-            <div class="takeaway-icon">⚖️</div>
-            <p style="margin:0;"><span class="highlight">Consistency is the Asset:</span> Credibility is the alignment of words, forecasts, and actions.</p>
         </div>
 
-        <div class="quote">
-            "In the modern financial landscape, trust is the most volatile asset of all. Rebuilding market trust takes years, but losing it takes only one missed forecast."
+        <div style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+            <p style="font-size: 28px; font-weight: 600; font-style: italic; color: var(--text-pri); text-align: center;">
+                "In the modern financial landscape, trust is the most volatile asset of all. Rebuilding market trust takes years, but losing it takes only one missed forecast."
+            </p>
         </div>
     </div>
 

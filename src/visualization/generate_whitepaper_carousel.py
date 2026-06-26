@@ -292,41 +292,67 @@ def draw_wrapped_text(canvas_obj, text, x, y, font, size, color, max_width_chars
         y -= line_height
     return y
 
-# SLIDE 1: Intro
+# SLIDE 1: Title
 draw_bg()
 c.setFillColor(ACCENT_BLU)
 c.setFont(f_bold, 32)
-c.drawString(80, 1150, "PROJECT OVERVIEW")
+c.drawString(80, 1150, "QUANTITATIVE RESEARCH")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 90)
 c.drawString(80, 1020, "The Central Bank")
 c.drawString(80, 910, "Credibility Index")
-
 y = 780
-y = draw_wrapped_text(c, "The 2022 global inflation crisis served as a watershed moment for modern monetary policy.", 80, y, f_reg, 36, TEXT_SEC, 48)
+y = draw_wrapped_text(c, "Measuring Institutional Trust in the Era of Policy Shocks", 80, y, f_bold, 40, ACCENT_BLU, 48)
 y -= 40
-y = draw_wrapped_text(c, "The 'Transitory Inflation' narrative was a strategic miscalculation that led to a total breakdown in forward guidance, stripping markets of their primary navigational tools.", 80, y, f_reg, 36, TEXT_SEC, 48)
-y -= 40
-y = draw_wrapped_text(c, "To mitigate these risks, the CBCI was developed as a rigorous, data-driven framework to quantify institutional trust and extract asymmetric insights from policy behavior.", 80, y, f_reg, 36, TEXT_SEC, 48)
+y = draw_wrapped_text(c, "A rigorous, data-driven framework quantifying the exact risk premium of central bank communication, forecasting, and policy execution.", 80, y, f_reg, 36, TEXT_SEC, 48)
 c.showPage()
 
-# SLIDE 2: Framework
+# SLIDE 2: Situation
+draw_bg()
+c.setFillColor(ACCENT_BLU)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "I. THE SITUATION")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 55)
+c.drawString(80, 1100, "Credibility is the currency of")
+c.drawString(80, 1030, "central banking. When it")
+c.drawString(80, 960, "fractures, markets break.")
+y = 800
+y = draw_wrapped_text(c, "Over the last decade, we transitioned from an era of Forward Guidance to one of acute Policy Shocks.", 80, y, f_bold, 38, TEXT_SEC, 45)
+y -= 60
+y = draw_wrapped_text(c, "The market no longer implicitly trusts official projections. Subjective narratives and central bank 'Fedspeak' fail to accurately price in systemic risk.", 80, y, f_bold, 38, TEXT_SEC, 45)
+y -= 60
+y = draw_wrapped_text(c, "We need a mathematical framework to strip away the rhetoric and measure trust objectively.", 80, y, f_bold, 38, TEXT_SEC, 45)
+c.showPage()
+
+# SLIDE 3: Complication (Heatmap)
 draw_bg()
 c.setFillColor(ACCENT_GRN)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "01 / THE FRAMEWORK")
+c.drawString(80, 1200, "II. THE COMPLICATION")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "The 5-Pillar Model")
-y = draw_wrapped_text(c, "To ensure a definitive 0-100 credibility score insulated from bias:", 80, 980, f_reg, 34, TEXT_SEC, 50)
-y -= 40
+c.setFont(f_bold, 55)
+c.drawString(80, 1100, "The Cost of Broken Trust: Volatility")
+c.drawImage(chart6_path, 80, 480, 920, 580, mask='auto')
+y = 420
+y = draw_wrapped_text(c, "Market memory is short, but the bond market always remembers. Yield spikes perfectly align with macro policy shocks.", 80, y, f_reg, 34, TEXT_SEC, 50)
+c.showPage()
 
+# SLIDE 4: Framework
+draw_bg()
+c.setFillColor(ACCENT_BLU)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "III. THE FRAMEWORK")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 55)
+c.drawString(80, 1100, "A 5-Pillar Quantitative Model")
+y = draw_wrapped_text(c, "A definitive 0-100 score completely insulated from subjective bias, structured across mutually exclusive metrics:", 80, 1000, f_reg, 34, TEXT_SEC, 50)
+y -= 60
 pillars_desc = [
-    ("1. Inflation Anchoring (30%)", "Measures absolute deviation of headline inflation from official targets over a 12-month window."),
-    ("2. Policy Consistency (20%)", "Evaluates NLP alignment between communication (FinBERT) and subsequent interest rate moves."),
-    ("3. Forecast Accuracy (20%)", "Quantifies Mean Absolute Error (MAE) of the central bank's own economic projections."),
-    ("4. Bond Confidence (15%)", "Tracks rolling volatility in sovereign bonds (utilizing FRED DGS10 data)."),
-    ("5. FX Stability (15%)", "Evaluates currency pair stability and safe-haven behavior during market stress.")
+    ("1. Inflation Anchoring (30%)", "Deviation of actual CPI from the official mandate target."),
+    ("2. Policy Consistency (20%)", "NLP-driven measurement (FinBERT) of divergence."),
+    ("3. Forecast Accuracy (20%)", "Mean Absolute Error (MAE) of central bank projections."),
+    ("4. Market Confidence (30%)", "Sovereign bond yield volatility and FX reserves stability.")
 ]
 for title, desc in pillars_desc:
     c.setFillColor(HexColor('#1E293B'))
@@ -338,148 +364,55 @@ for title, desc in pillars_desc:
     y -= 150
 c.showPage()
 
-# SLIDE 3: Data Architecture
-draw_bg()
-c.setFillColor(ACCENT_BLU)
-c.setFont(f_bold, 32)
-c.drawString(80, 1200, "02 / ENTERPRISE ARCHITECTURE")
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Data Engineering")
-y = draw_wrapped_text(c, "A strategic shift from fragile manual spreadsheets to an automated, high-integrity pipeline.", 80, 960, f_reg, 34, TEXT_SEC, 50)
-y -= 60
-
-y = draw_wrapped_text(c, "⚙️ Python & Pandas (ETL)", 80, y, f_bold, 38, TEXT_PRI, 50)
-y = draw_wrapped_text(c, "Ingesting over 4,200 days of raw data directly from the FRED API. Eliminates human error.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
-y -= 60
-
-y = draw_wrapped_text(c, "🗄️ Relational Integrity (PostgreSQL)", 80, y, f_bold, 38, TEXT_PRI, 50)
-y = draw_wrapped_text(c, "The single source of truth. Enforcing strict data types and managing exact FOMC meeting metadata.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
-y -= 60
-
-y = draw_wrapped_text(c, "📊 Code-as-UI (Streamlit)", 80, y, f_bold, 38, TEXT_PRI, 50)
-y = draw_wrapped_text(c, "Moving away from unversioned drag-and-drop tools to fully auditable, Git-versioned visualization layers.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
-
-c.showPage()
-
-# SLIDE 4: NLP
+# SLIDE 5: Proof 1 (Map)
 draw_bg()
 c.setFillColor(ACCENT_GRN)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "03 / THE INNOVATION")
+c.drawString(80, 1200, "IV. DATA PROOF")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Objective NLP Sentiment")
-
-y = draw_wrapped_text(c, "A central innovation of the CBCI is the use of Natural Language Processing (NLP) to convert unstructured central bank communications into quantitative data points.", 80, 960, f_reg, 34, TEXT_SEC, 50)
-y -= 60
-
-y = draw_wrapped_text(c, "🧠 The FinBERT Model", 80, y, f_bold, 38, TEXT_PRI, 50)
-y = draw_wrapped_text(c, "Specifically trained for financial contexts. FinBERT parses thousands of FOMC and ECB policy statements to generate a precise hawkish-dovish scale.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
-y -= 60
-
-y = draw_wrapped_text(c, "⚡ The 'Policy Shock' Metric", 80, y, f_bold, 38, TEXT_PRI, 50)
-y = draw_wrapped_text(c, "The model heavily penalizes central banks when dovish communication is immediately followed by hawkish actions. These shocks are a primary driver of catastrophic bond market volatility.", 80, y-10, f_reg, 34, TEXT_SEC, 50)
-
+c.setFont(f_bold, 55)
+c.drawString(80, 1100, "Credibility is Geopolitically Concentrated")
+c.drawImage(chart3_path, 80, 480, 920, 580, mask='auto')
 c.showPage()
 
-# SLIDE 5: Map
-draw_bg()
-c.setFillColor(ACCENT_GRN)
-c.setFont(f_bold, 32)
-c.drawString(80, 1200, "04 / GEOGRAPHIC CONTEXT")
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Global Credibility Heatmap")
-c.drawImage(chart3_path, 80, 550, 920, 480, mask='auto')
-y = 500
-c.setFillColor(HexColor('#1E293B'))
-c.roundRect(80, y - 140, 920, 140, 15, fill=1, stroke=0)
-c.setFillColor(ACCENT_BLU)
-c.setFont(f_bold, 34)
-c.drawString(110, y - 40, "🌍 The Analyst Insight")
-draw_wrapped_text(c, "Institutional trust is heavily concentrated in Western European and North American hubs, showing strong structural resilience compared to emerging markets and heavily opaque regimes.", 110, y - 80, f_reg, 26, TEXT_PRI, 60)
-c.showPage()
-
-# SLIDE 6: Outcome
+# SLIDE 6: Proof 2 (Leaderboard)
 draw_bg()
 c.setFillColor(ACCENT_BLU)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "05 / THE OUTCOME")
+c.drawString(80, 1200, "V. THE OUTCOME")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Global Leaderboard")
-c.drawImage(chart1_path, 80, 430, 920, 580, mask='auto')
-y = 350
-y = draw_wrapped_text(c, "🏆 The Gold Standard: SNB (89.4)", 80, y, f_bold, 36, TEXT_PRI, 50)
-y = draw_wrapped_text(c, "Maintained extreme FX stability and tight inflation anchoring throughout the 2020s.", 80, y-10, f_reg, 30, TEXT_SEC, 55)
-y -= 40
-y = draw_wrapped_text(c, "⚠️ Critical Laggard: PBOC (59.8)", 80, y, f_bold, 36, TEXT_PRI, 50)
-y = draw_wrapped_text(c, "Penalized for lack of transparent forward guidance and policy consistency.", 80, y-10, f_reg, 30, TEXT_SEC, 55)
+c.setFont(f_bold, 55)
+c.drawString(80, 1100, "The Global Leaderboard")
+c.drawImage(chart1_path, 80, 480, 920, 580, mask='auto')
 c.showPage()
 
-# SLIDE 7: Policy vs Action
+# SLIDE 7: Insight (Quadrant)
+draw_bg()
+c.setFillColor(ACCENT_GRN)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "VI. STRATEGIC INSIGHT")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 55)
+c.drawString(80, 1100, "The Consistency Premium Matrix")
+c.drawImage(chart4_path, 80, 480, 920, 580, mask='auto')
+c.showPage()
+
+# SLIDE 8: Takeaways
 draw_bg()
 c.setFillColor(ACCENT_BLU)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "06 / ADVANCED ANALYTICS")
+c.drawString(80, 1200, "VII. EXECUTIVE SUMMARY")
 c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Policy vs Action Matrix")
-c.drawImage(chart4_path, 80, 430, 920, 580, mask='auto')
-c.showPage()
-
-# SLIDE 8: Radar Chart
-draw_bg()
-c.setFillColor(ACCENT_GRN)
-c.setFont(f_bold, 32)
-c.drawString(80, 1200, "07 / ADVANCED ANALYTICS")
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Credibility Anatomy")
-c.drawImage(chart5_path, 80, 350, 920, 680, mask='auto')
-c.showPage()
-
-# SLIDE 9: Macro Shock
-draw_bg()
-c.setFillColor(ACCENT_GRN)
-c.setFont(f_bold, 32)
-c.drawString(80, 1200, "08 / MACRO SHOCK MONITOR")
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Treasury Yield Dynamics")
-c.drawImage(chart2_path, 80, 550, 920, 480, mask='auto')
-y = 480
-y = draw_wrapped_text(c, "Market memory is short, but the bond market always remembers.", 80, y, f_bold, 38, TEXT_PRI, 50)
-c.showPage()
-
-# SLIDE 10: Volatility Heatmap
-draw_bg()
-c.setFillColor(ACCENT_GRN)
-c.setFont(f_bold, 32)
-c.drawString(80, 1200, "09 / MACRO SHOCK MONITOR")
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Yield Volatility Heatmap")
-c.drawImage(chart6_path, 80, 430, 920, 580, mask='auto')
-c.showPage()
-
-# SLIDE 11: Final Takeaways
-draw_bg()
-c.setFillColor(ACCENT_BLU)
-c.setFont(f_bold, 32)
-c.drawString(80, 1200, "10 / CONCLUSION")
-c.setFillColor(TEXT_PRI)
-c.setFont(f_bold, 70)
-c.drawString(80, 1080, "Final Takeaways for Audit")
-y = 900
-y = draw_wrapped_text(c, "• Engineering Over Manual Logic: Transitioning to Python/SQL is essential for mitigating model risk.", 80, y, f_reg, 34, TEXT_SEC, 55)
-y -= 40
-y = draw_wrapped_text(c, "• Sentiment as a Hard Metric: NLP models turn rhetoric into tradable, measurable signals.", 80, y, f_reg, 34, TEXT_SEC, 55)
-y -= 40
-y = draw_wrapped_text(c, "• Consistency is the Asset: Credibility is the alignment of words, forecasts, and actions.", 80, y, f_reg, 34, TEXT_SEC, 55)
+c.setFont(f_bold, 55)
+c.drawString(80, 1100, "Final Takeaways for Asset Allocators")
+y = 960
+y = draw_wrapped_text(c, "• Engineering Over Manual Logic: Transitioning to Python/SQL is essential for mitigating model risk.", 80, y, f_bold, 34, TEXT_SEC, 50)
 y -= 80
-draw_wrapped_text(c, "\"In the modern financial landscape, trust is the most volatile asset of all. Rebuilding market trust takes years, but losing it takes only one missed forecast.\"", 80, y, f_bold, 34, ACCENT_BLU, 55)
+y = draw_wrapped_text(c, "• Sentiment as a Hard Metric: NLP models turn rhetoric into tradable, measurable signals.", 80, y, f_bold, 34, TEXT_SEC, 50)
+y -= 80
+y = draw_wrapped_text(c, "• Consistency is the Asset: Credibility is the strict mathematical alignment of words, forecasts, and actions.", 80, y, f_bold, 34, TEXT_SEC, 50)
+y -= 120
+draw_wrapped_text(c, "\"In the modern financial landscape, trust is the most volatile asset of all. Rebuilding market trust takes years, but losing it takes only one missed forecast.\"", 80, y, f_bold, 34, ACCENT_BLU, 50)
 c.showPage()
 c.save()
 print('Successfully generated wrapped CBCI Whitepaper Carousel!')
