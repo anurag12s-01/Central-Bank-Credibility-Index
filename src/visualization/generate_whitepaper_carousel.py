@@ -325,83 +325,97 @@ y -= 60
 y = draw_wrapped_text(c, "We need a mathematical framework to strip away the rhetoric and measure trust objectively.", 80, y, f_bold, 38, TEXT_SEC, 45)
 c.showPage()
 
-# SLIDE 3: Complication (Heatmap)
+# SLIDE 3: The Shock (Treasury Yield Dynamics)
 draw_bg()
 c.setFillColor(ACCENT_GRN)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "II. THE COMPLICATION")
+c.drawString(80, 1200, "II. THE SHOCK")
+c.setFillColor(TEXT_PRI)
+c.setFont(f_bold, 55)
+c.drawString(80, 1100, "Treasury Yield Dynamics")
+c.drawImage(chart2_path, 80, 480, 920, 580, mask='auto')
+y = 420
+y = draw_wrapped_text(c, "Market memory is short, but the bond market always remembers. Yield spikes trace the exact moments policy credibility fractured.", 80, y, f_reg, 34, TEXT_SEC, 50)
+c.showPage()
+
+# SLIDE 4: Complication (Heatmap)
+draw_bg()
+c.setFillColor(ACCENT_GRN)
+c.setFont(f_bold, 32)
+c.drawString(80, 1200, "III. THE COMPLICATION")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 55)
 c.drawString(80, 1100, "The Cost of Broken Trust: Volatility")
 c.drawImage(chart6_path, 80, 480, 920, 580, mask='auto')
 y = 420
-y = draw_wrapped_text(c, "Market memory is short, but the bond market always remembers. Yield spikes perfectly align with macro policy shocks.", 80, y, f_reg, 34, TEXT_SEC, 50)
+y = draw_wrapped_text(c, "When guidance is abandoned, institutions panic. This is mathematically visible in extreme yield volatility.", 80, y, f_reg, 34, TEXT_SEC, 50)
 c.showPage()
 
-# SLIDE 4: Framework
+# SLIDE 5: Framework
 draw_bg()
 c.setFillColor(ACCENT_BLU)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "III. THE FRAMEWORK")
+c.drawString(80, 1200, "IV. THE FRAMEWORK")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 55)
 c.drawString(80, 1100, "A 5-Pillar Quantitative Model")
-y = draw_wrapped_text(c, "A definitive 0-100 score completely insulated from subjective bias, structured across mutually exclusive metrics:", 80, 1000, f_reg, 34, TEXT_SEC, 50)
-y -= 60
+y = draw_wrapped_text(c, "A definitive 0-100 score completely insulated from subjective bias, structured across mutually exclusive metrics:", 80, 1000, f_reg, 32, TEXT_SEC, 55)
+y -= 40
 pillars_desc = [
     ("1. Inflation Anchoring (30%)", "Deviation of actual CPI from the official mandate target."),
     ("2. Policy Consistency (20%)", "NLP-driven measurement (FinBERT) of divergence."),
     ("3. Forecast Accuracy (20%)", "Mean Absolute Error (MAE) of central bank projections."),
-    ("4. Market Confidence (30%)", "Sovereign bond yield volatility and FX reserves stability.")
+    ("4. Bond Confidence (15%)", "Tracks rolling volatility in sovereign bonds (DGS10)."),
+    ("5. FX Stability (15%)", "Evaluates currency pair stability during market stress.")
 ]
 for title, desc in pillars_desc:
     c.setFillColor(HexColor('#1E293B'))
     c.roundRect(80, y - 90, 920, 130, 15, fill=1, stroke=0)
     c.setFillColor(TEXT_PRI)
-    c.setFont(f_bold, 30)
+    c.setFont(f_bold, 28)
     c.drawString(110, y - 10, title)
-    draw_wrapped_text(c, desc, 110, y - 55, f_reg, 26, ACCENT_GRN, 60)
-    y -= 150
+    draw_wrapped_text(c, desc, 110, y - 55, f_reg, 24, ACCENT_GRN, 65)
+    y -= 145
 c.showPage()
 
-# SLIDE 5: Proof 1 (Map)
+# SLIDE 6: Proof 1 (Map)
 draw_bg()
 c.setFillColor(ACCENT_GRN)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "IV. DATA PROOF")
+c.drawString(80, 1200, "V. DATA PROOF")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 55)
 c.drawString(80, 1100, "Credibility is Geopolitically Concentrated")
 c.drawImage(chart3_path, 80, 480, 920, 580, mask='auto')
 c.showPage()
 
-# SLIDE 6: Proof 2 (Leaderboard)
+# SLIDE 7: Proof 2 (Leaderboard)
 draw_bg()
 c.setFillColor(ACCENT_BLU)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "V. THE OUTCOME")
+c.drawString(80, 1200, "VI. THE OUTCOME")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 55)
 c.drawString(80, 1100, "The Global Leaderboard")
 c.drawImage(chart1_path, 80, 480, 920, 580, mask='auto')
 c.showPage()
 
-# SLIDE 7: Insight (Quadrant)
+# SLIDE 8: Insight (Quadrant)
 draw_bg()
 c.setFillColor(ACCENT_GRN)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "VI. STRATEGIC INSIGHT")
+c.drawString(80, 1200, "VII. STRATEGIC INSIGHT")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 55)
 c.drawString(80, 1100, "The Consistency Premium Matrix")
 c.drawImage(chart4_path, 80, 480, 920, 580, mask='auto')
 c.showPage()
 
-# SLIDE 8: Takeaways
+# SLIDE 9: Takeaways
 draw_bg()
 c.setFillColor(ACCENT_BLU)
 c.setFont(f_bold, 32)
-c.drawString(80, 1200, "VII. EXECUTIVE SUMMARY")
+c.drawString(80, 1200, "VIII. EXECUTIVE SUMMARY")
 c.setFillColor(TEXT_PRI)
 c.setFont(f_bold, 55)
 c.drawString(80, 1100, "Final Takeaways for Asset Allocators")

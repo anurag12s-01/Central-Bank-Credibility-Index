@@ -106,15 +106,21 @@
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 16px;
-            padding: 40px;
+            padding: 30px 40px;
             backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
+        }
+        
+        .mece-card.span-2 {
+            grid-column: span 2;
+            align-items: center;
+            text-align: center;
         }
 
         .mece-card h3 {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 600;
             color: var(--text-pri);
             display: flex;
@@ -123,8 +129,8 @@
         }
 
         .icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             color: var(--accent-blue);
         }
         .icon.green { color: var(--accent-green); }
@@ -190,22 +196,34 @@
         </div>
     </div>
 
-    <!-- SLIDE 3: Complication (Heatmap) -->
+    <!-- SLIDE 3: The Shock (Treasury Yield Dynamics) -->
     <div class="slide">
         <div class="number-large">03</div>
-        <div class="tag red">II. The Complication</div>
-        <h2>The Cost of Broken Trust: Yield Volatility</h2>
-        <p style="margin-bottom: 40px;">Market memory is short, but the bond market always remembers. Yield spikes perfectly align with macro policy shocks.</p>
-        <img src="temp_images/chart6_heatmap.png" class="chart-img" alt="Yield Volatility Heatmap">
+        <div class="tag red">II. The Shock</div>
+        <h2>Treasury Yield Dynamics</h2>
+        <p style="margin-bottom: 40px;">Market memory is short, but the bond market always remembers. Yield spikes trace the exact moments policy credibility fractured.</p>
+        <img src="temp_images/chart2_macro.png" class="chart-img" alt="Treasury Yield Dynamics">
         <div class="insight-box" style="background: rgba(239, 68, 68, 0.1); border-left-color: var(--accent-red);">
-            <p><strong>Strategic Insight:</strong> The deepest reds correlate perfectly with periods where central banks abandoned forward guidance, triggering massive institutional panic.</p>
+            <p><strong>Strategic Insight:</strong> The sharpest paradigm shifts in 10-Year yields occur precisely when central banks unexpectedly pivot, destroying prior guidance.</p>
         </div>
     </div>
 
-    <!-- SLIDE 4: Framework (MECE) -->
+    <!-- SLIDE 4: Complication (Heatmap) -->
     <div class="slide">
         <div class="number-large">04</div>
-        <div class="tag">III. The Framework</div>
+        <div class="tag red">III. The Complication</div>
+        <h2>The Cost of Broken Trust: Yield Volatility</h2>
+        <p style="margin-bottom: 40px;">When guidance is abandoned, institutions panic. This is mathematically visible in extreme yield volatility.</p>
+        <img src="temp_images/chart6_heatmap.png" class="chart-img" alt="Yield Volatility Heatmap">
+        <div class="insight-box" style="background: rgba(239, 68, 68, 0.1); border-left-color: var(--accent-red);">
+            <p><strong>Strategic Insight:</strong> The deepest reds correlate perfectly with periods where central banks abandoned forward guidance entirely.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: Framework (MECE) -->
+    <div class="slide">
+        <div class="number-large">05</div>
+        <div class="tag">IV. The Framework</div>
         <h2>A 5-Pillar Quantitative Model</h2>
         <p>A definitive 0–100 score completely insulated from subjective bias, structured across mutually exclusive metrics:</p>
         <div class="mece-grid">
@@ -214,36 +232,43 @@
                     <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                     Inflation Anchoring (30%)
                 </h3>
-                <p style="font-size: 24px;">Deviation of actual CPI from the official mandate target over a 5-year rolling window.</p>
+                <p style="font-size: 20px;">Deviation of actual CPI from the official mandate target over a 5-year rolling window.</p>
             </div>
             <div class="mece-card">
                 <h3>
                     <svg class="icon green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     Policy Consistency (20%)
                 </h3>
-                <p style="font-size: 24px;">NLP-driven measurement (FinBERT) of divergence between forward guidance and actual rate decisions.</p>
+                <p style="font-size: 20px;">NLP-driven measurement (FinBERT) of divergence between forward guidance and actual rate decisions.</p>
             </div>
             <div class="mece-card">
                 <h3>
                     <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
                     Forecast Accuracy (20%)
                 </h3>
-                <p style="font-size: 24px;">Mean Absolute Error (MAE) of the central bank's GDP and inflation projections vs reality.</p>
+                <p style="font-size: 20px;">Mean Absolute Error (MAE) of the central bank's GDP and inflation projections vs reality.</p>
             </div>
             <div class="mece-card">
                 <h3>
                     <svg class="icon red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Market Confidence (30%)
+                    Bond Confidence (15%)
                 </h3>
-                <p style="font-size: 24px;">Combined scoring of sovereign bond yield volatility (15%) and FX reserves stability (15%).</p>
+                <p style="font-size: 20px;">Tracks rolling volatility in sovereign bonds (utilizing FRED DGS10 data).</p>
+            </div>
+            <div class="mece-card span-2">
+                <h3>
+                    <svg class="icon blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    FX Stability (15%)
+                </h3>
+                <p style="font-size: 20px;">Evaluates currency pair stability and safe-haven behavior during market stress.</p>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 5: Proof 1 (Map) -->
+    <!-- SLIDE 6: Proof 1 (Map) -->
     <div class="slide">
-        <div class="number-large">05</div>
-        <div class="tag green">IV. Data Proof</div>
+        <div class="number-large">06</div>
+        <div class="tag green">V. Data Proof</div>
         <h2>Credibility is Geopolitically Concentrated</h2>
         <p style="margin-bottom: 40px;">Mapping the total index scores reveals severe structural deficits outside major Western hubs.</p>
         <img src="temp_images/chart3_map.png" class="chart-img" alt="Global Credibility Map">
@@ -252,10 +277,10 @@
         </div>
     </div>
 
-    <!-- SLIDE 6: Proof 2 (Leaderboard) -->
+    <!-- SLIDE 7: Proof 2 (Leaderboard) -->
     <div class="slide">
-        <div class="number-large">06</div>
-        <div class="tag">V. The Outcome</div>
+        <div class="number-large">07</div>
+        <div class="tag">VI. The Outcome</div>
         <h2>The Global Leaderboard</h2>
         <p style="margin-bottom: 20px;">The Swiss National Bank (SNB) operates as the absolute gold standard for institutional trust.</p>
         <img src="temp_images/chart1_stacked.png" class="chart-img" alt="Global Leaderboard Stacked Bar">
@@ -264,10 +289,10 @@
         </div>
     </div>
 
-    <!-- SLIDE 7: Insight (Quadrant) -->
+    <!-- SLIDE 8: Insight (Quadrant) -->
     <div class="slide">
-        <div class="number-large">07</div>
-        <div class="tag blue">VI. Strategic Insight</div>
+        <div class="number-large">08</div>
+        <div class="tag blue">VII. Strategic Insight</div>
         <h2>The Consistency Premium Matrix</h2>
         <p style="margin-bottom: 20px;">Separating central banks by their ability to anchor inflation vs. execute on communication.</p>
         <img src="temp_images/chart4_bubble.png" class="chart-img" alt="Policy vs Action Bubble Matrix">
@@ -276,10 +301,10 @@
         </div>
     </div>
 
-    <!-- SLIDE 8: Conclusion -->
+    <!-- SLIDE 9: Conclusion -->
     <div class="slide">
-        <div class="number-large">08</div>
-        <div class="tag">VII. Executive Summary</div>
+        <div class="number-large">09</div>
+        <div class="tag">VIII. Executive Summary</div>
         <h2 style="margin-bottom: 50px;">Final Takeaways for Asset Allocators</h2>
         
         <div style="display: flex; flex-direction: column; gap: 50px;">
